@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='container'>
+<h1>Contact Us</h1>
+
+{% if submitted %}
+	<p class="success">
+		Potom posmotry che ti tam visral
+	</p>
+
+{% else %}
+	<form action="" method="post" novalidate>
+	<table>
+		{{ form.as_table }}
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="submit" value="Submit"></td>
+		</tr>	
+	</table>
+	{% csrf_token %}
+	</form>
+
+{% endif %}
+</div>
+{% endblock content %}

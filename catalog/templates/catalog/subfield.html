@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class='container'>
+<table>
+{% for i in courses %}
+
+  <div class="row">
+  <div class="col-md-4 mt-3">
+	<h4><a href="{% url 'course' field.id subfield.id i.id %}" class="card-text">{{ i.title }}</a></h4>
+    </div>
+  
+
+
+  	{% endfor %}
+  	</div>
+  </table>
+</div>
+
+{% endblock %}

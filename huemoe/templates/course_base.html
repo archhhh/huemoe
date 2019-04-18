@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block navbar %}
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+{% block lines %}
+
+{% endblock %}
+</div>
+<span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Contents</span>
+{% endblock %}
