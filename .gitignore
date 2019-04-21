@@ -110,6 +110,8 @@ ENV/
 env.bak/
 venv.bak/
 env_port/
+pipfile
+pipfile.lock
 
 # Spyder project settings
 .spyderproject

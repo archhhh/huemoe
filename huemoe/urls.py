@@ -18,11 +18,9 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 import catalog.views
-import accounts.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('accounts.urls')),
     path('explore/', include('catalog.urls')),
     path('', catalog.views.home, name='home'),
     path('contact', catalog.views.contact, name='contact'),

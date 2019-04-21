@@ -1,32 +1,99 @@
-{% extends 'course_base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>EPLAT</title>
+  <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
 
-{% block lines %}
-
-{% for i in course.video_set.all %}
-<a href="#">{{ i.title }}</a>
-{% endfor %}
-
-{% endblock %}
-
-
-{% block content %}
-{% for c in course.video_set.all %}
-<div class='container'>
-
-
-  <div class="row">
-  	
-    <div class="col-md-4 mt-3">
-      <div class="card mb-4 shadow-sm">
-	    <iframe width="100%" height="225" src="https://www.youtube.com/embed/{{ c.link_id }}"" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <div class="card-body">
-          	<p class="card-text">{{ c.title }}</p>
-          </div>
-      </div>
+  {% with co=course.subfield %}
+    <h1>Course {{ co.title }}</h1>
+    <div class="contents">
+      <h3>Contents</h3>
+      <ul id="courses">
+        {% for c in course.contents.all %}
+          <li data-id="{{ c.id }}" {% if m == content %}class="selected"{% endif %}>
+            <a href="">
+              <span>
+                asdasd
+              </span>
+              <br>
+              {{ c.title }}
+            </a>
+          </li>
+        {% empty %}
+          <li>No content yet.</li>
+        {% endfor %}
+      </ul>
+      
     </div>
+    <div class="course">
+      <h2>Course</h2>
+      <h3>Course contents:</h3>
 
-  	{% endfor %}
-  	</div>
-</div>
+      <div id="course-contents">
+        {% for content in course.contents.all %}
+          <div class="content-video">
+            <p><iframe width="560" height="315" src="{{ content.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+          </div>
+          <div class="content-text">
+            <p>{{ content.text }}</p>
+          </div>
+          <div class="content-files">
+            <a href="{{ content.file.url }}">Download</a>
+        {% empty %}
+          <p>This module has no contents yet.</p>
+        {% endfor %}
+      </div>
 
-{% endblock %}
+    </div>
+  {% endwith %}
+
+
+<script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></script>
+<script>
+  $(document).ready(function() {
+  });
+
+  $('#courses').sortable({
+      stop: function(event, ui) {
+          courses_order = {};
+          $('#courses').children().each(function(){
+              // update the order field
+              $(this).find('.order').text($(this).index() + 1);
+              // associate the module's id with its order
+              courses_order[$(this).data('id')] = $(this).index();
+          });
+          $.ajax({
+              type: 'POST',
+              url: '',
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+                 data: JSON.stringify(courses_order)
+             });
+      }
+  });
+
+  $('#course-contents').sortable({
+      stop: function(event, ui) {
+          contents_order = {};
+          $('#course-contents').children().each(function(){
+              // associate the module's id with its order
+              contents_order[$(this).data('id')] = $(this).index();
+          });
+
+          $.ajax({
+              type: 'POST',
+              url: '',
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+              data: JSON.stringify(contents_order),
+          });
+      }
+  });
+
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@
   	{% for subfield in subfields %}
     <div class="col-md-4 mt-3">
     	<img class="img-fluid" src='{{ subfield.pic.url }}'>
-    	<h3><a href="{% url 'subfield' field.id subfield.id %}" class="card-text">{{ subfield.title }}</a></h3>
+    	<h3><a href="{% url 'subfield' field.slug subfield.slug %}" class="card-text">{{ subfield.title }}</a></h3>
     </div>
 
   	{% endfor %}

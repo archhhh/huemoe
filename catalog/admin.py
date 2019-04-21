@@ -1,29 +1,52 @@
 from django.contrib import admin
-from .models import Field, Subfield, Course, Video
+from .models import Field, Subfield, Course, Content
 
-class VideoAdd(admin.StackedInline):
-	model = Video
-	extra = 1
 
-class CourseAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None, {'fields':['subfield']}),
-		(None, {'fields':['title']}),
-	]
-	inlines = [VideoAdd]
-
-class SubfieldAdd(admin.StackedInline):
+class SubfieldInline(admin.StackedInline):
 	model = Subfield
-	extra = 1
-	classes = ['collapse']
+	prepopulated_fields = {'slug': ('title',)}
 
-class FieldAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None, {'fields':['pic']}),
-		(None, {'fields':['title']}),
-		(None, {'fields':['description']})
-	]
-	inlines = [SubfieldAdd]
 
-admin.site.register(Field, FieldAdmin)
-admin.site.register(Course, CourseAdmin)
+@admin.register(Field)
+class SubjectAdmin(admin.ModelAdmin):
+	list_display = ['title', 'slug']
+	prepopulated_fields = {'slug': ('title',)}
+	inlines = [SubfieldInline]
+
+
+class ContentInline(admin.StackedInline):
+	model = Content
+
+
+@admin.register(Course)
+class ContentAdmin(admin.ModelAdmin):
+	list_display = ['title', 'subfield', 'description']
+	list_filter = ['subfield']
+	inlines = [ContentInline]
+	
+# class VideoAdd(admin.StackedInline):
+# 	model = Video
+# 	extra = 1
+
+# class CourseAdmin(admin.ModelAdmin):
+# 	fieldsets = [
+# 		(None, {'fields':['subfield']}),
+# 		(None, {'fields':['title']}),
+# 	]
+# 	inlines = [VideoAdd]
+
+# class SubfieldAdd(admin.StackedInline):
+# 	model = Subfield
+# 	extra = 1
+# 	classes = ['collapse']
+
+# class FieldAdmin(admin.ModelAdmin):
+# 	fieldsets = [
+# 		(None, {'fields':['pic']}),
+# 		(None, {'fields':['title']}),
+# 		(None, {'fields':['description']})
+# 	]
+# 	inlines = [SubfieldAdd]
+
+# admin.site.register(Field, FieldAdmin)
+# admin.site.register(Course, CourseAdmin)

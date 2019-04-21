@@ -34,16 +34,7 @@ function closeNav() {
       <a class="p-2 text-dark" href="{% url 'explore' %}">Explore</a>
       <a class="p-2 text-dark" href="{% url 'contact' %}">Contact</a>
       <a class="p-2 text-dark" href="{% url 'about' %}">About</a>
-      {% if user.is_authenticated %}
-      <a class="p-2 text-dark" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-      <form id="logout" method="POST" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <input type="hidden" />
-      </form>
-      {% else %}
-      <a class="p-2 text-dark" href="{% url 'signup' %}">Signup</a>
-      <a class="p-2 text-dark" href="{% url 'login' %}">Login</a>
-      {% endif %}
+
     </nav>
   </div>
 </main>

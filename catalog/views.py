@@ -38,22 +38,29 @@ def explore(request):
 	fields = Field.objects.all()
 	return render(request, 'catalog/explore.html', {'fields':fields})
 
-def field(request, field_id):
+def field(request, fslug):
+	field_id = Field.objects.get(slug=fslug).id
 	subfields = Subfield.objects.filter(field=field_id)
 	field = get_object_or_404(Field, pk=field_id)
 	return render(request, 'catalog/field.html', {'field':field, 'subfields':subfields})
 
-def subfield(request, field_id, subfield_id):
+def subfield(request, fslug, sslug):
+	field_id = Field.objects.get(slug=fslug).id
+	subfield_id = Subfield.objects.get(slug=sslug).id
 	courses = Course.objects.filter(subfield=subfield_id)
 	field = get_object_or_404(Field, pk=field_id)
 	subfield = get_object_or_404(Subfield, pk=subfield_id)
 	return render(request, 'catalog/subfield.html', {'field':field,'subfield':subfield, 'courses':courses})
 
-def course(request, field_id, subfield_id, course_id):
+def course(request, fslug, sslug, course_id):
+	field_id = Field.objects.get(slug=fslug).id
+	subfield_id = Subfield.objects.get(slug=sslug).id
 	field = get_object_or_404(Field, pk=field_id)
 	subfield = get_object_or_404(Subfield, pk=subfield_id)
 	course = get_object_or_404(Course, pk=course_id)
 	return render(request, 'catalog/course.html', {'course':course, 'field':field, 'subfield':subfield})
+
+
 
 
 
