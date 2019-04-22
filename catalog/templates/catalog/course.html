@@ -1,26 +1,20 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>EPLAT</title>
-  <link href="{% static 'css/base.css' %}" rel="stylesheet">
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% load staticfiles %}
+
+{% block content %}
   {% with co=course.subfield %}
-    <h1>Course {{ co.title }}</h1>
+    <h2>Course {{ co.title }}</h2>
+    <br />
     <div class="contents">
       <h3>Contents</h3>
       <ul id="courses">
         {% for c in course.contents.all %}
-          <li data-id="{{ c.id }}" {% if m == content %}class="selected"{% endif %}>
-            <a href="">
+          <li data-id="{{ c.slug }}" {% if m == content %}class='selected'{% endif %}>
+            <a href="{{ c.slug }}">
               <span>
-                asdasd
+                {{ c.title }}
               </span>
-              <br>
-              {{ c.title }}
             </a>
           </li>
         {% empty %}
@@ -29,30 +23,15 @@
       </ul>
       
     </div>
-    <div class="course">
-      <h2>Course</h2>
-      <h3>Course contents:</h3>
+    {% block course_content %}
 
-      <div id="course-contents">
-        {% for content in course.contents.all %}
-          <div class="content-video">
-            <p><iframe width="560" height="315" src="{{ content.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-          </div>
-          <div class="content-text">
-            <p>{{ content.text }}</p>
-          </div>
-          <div class="content-files">
-            <a href="{{ content.file.url }}">Download</a>
-        {% empty %}
-          <p>This module has no contents yet.</p>
-        {% endfor %}
-      </div>
-
-    </div>
+    
+    {% endblock %}
+  
   {% endwith %}
 
-
-<script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
   $(document).ready(function() {
   });
@@ -93,7 +72,6 @@
           });
       }
   });
-
 </script>
-</body>
-</html>
+
+{% endblock %}

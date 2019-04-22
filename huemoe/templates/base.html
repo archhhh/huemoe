@@ -15,19 +15,7 @@
 {% block navbar %}
 
 {% endblock %}
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-  document.body.style.backgroundColor = "white";
-}
-</script>
     <nav class="my-2 my-md-0 mr-md-3 ml-auto">
 
       <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>

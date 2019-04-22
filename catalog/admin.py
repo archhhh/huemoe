@@ -8,7 +8,7 @@ class SubfieldInline(admin.StackedInline):
 
 
 @admin.register(Field)
-class SubjectAdmin(admin.ModelAdmin):
+class SubfieldAdmin(admin.ModelAdmin):
 	list_display = ['title', 'slug']
 	prepopulated_fields = {'slug': ('title',)}
 	inlines = [SubfieldInline]
@@ -16,12 +16,14 @@ class SubjectAdmin(admin.ModelAdmin):
 
 class ContentInline(admin.StackedInline):
 	model = Content
+	prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Course)
 class ContentAdmin(admin.ModelAdmin):
 	list_display = ['title', 'subfield', 'description']
 	list_filter = ['subfield']
+	prepopulated_fields = {'slug': ('title',)}
 	inlines = [ContentInline]
 	
 # class VideoAdd(admin.StackedInline):

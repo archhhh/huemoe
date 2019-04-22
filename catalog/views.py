@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, get_connection
 from .forms import ContactForm
-from .models import Field, Course, Subfield
+from .models import Field, Course, Subfield, Content
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -52,15 +52,18 @@ def subfield(request, fslug, sslug):
 	subfield = get_object_or_404(Subfield, pk=subfield_id)
 	return render(request, 'catalog/subfield.html', {'field':field,'subfield':subfield, 'courses':courses})
 
-def course(request, fslug, sslug, course_id):
+def course(request, fslug, sslug, cslug):
 	field_id = Field.objects.get(slug=fslug).id
 	subfield_id = Subfield.objects.get(slug=sslug).id
-	field = get_object_or_404(Field, pk=field_id)
-	subfield = get_object_or_404(Subfield, pk=subfield_id)
-	course = get_object_or_404(Course, pk=course_id)
-	return render(request, 'catalog/course.html', {'course':course, 'field':field, 'subfield':subfield})
+	course = get_object_or_404(Course, pk=Course.objects.get(slug=cslug).id)
+	return render(request, 'catalog/course.html', {'course':course})
 
-
+def content(request, fslug, sslug, cslug, content_title):
+	field_id = Field.objects.get(slug=fslug).id
+	subfield_id = Subfield.objects.get(slug=sslug).id
+	course = get_object_or_404(Course, pk=Course.objects.get(slug=cslug).id)
+	content = get_object_or_404(Content, pk=Content.objects.get(slug=content_title).id)
+	return render(request, 'catalog/content.html', {'course':course, 'content':content})
 
 
 
