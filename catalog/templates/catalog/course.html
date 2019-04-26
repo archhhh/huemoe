@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load staticfiles %}
+{% load ratings %}
 
 {% block content %}
   {% with co=course.subfield %}
@@ -23,6 +24,7 @@
       </ul>
       
     </div>
+  {% ratings course %}
     {% block course_content %}
 
     

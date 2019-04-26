@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load ratings %}
 
 {% block content %}
 <div class='container'>
@@ -11,7 +11,8 @@
   	<img class="img-fluid" src='{{ i.pic.url }}'>
 	<h4><a href="{% url 'course' field.slug subfield.slug i.slug %}" class="card-text">{{ i.title }}</a></h4>
     </div>
-  
+
+  {% ratings i %}
 
 
   	{% endfor %}

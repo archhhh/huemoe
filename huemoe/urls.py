@@ -25,4 +25,5 @@ urlpatterns = [
     path('', catalog.views.home, name='home'),
     path('contact', catalog.views.contact, name='contact'),
     path('about', catalog.views.about, name='about'),
+    path('ratings/', include('star_ratings.urls', namespace='ratings'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
