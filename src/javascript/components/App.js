@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import Landing from "./landing/Landing";
 import Header from "./Header";
-import Banner from "./Banner";
+import Footer from "./Footer";
 
 
 class App extends Component{
@@ -10,7 +11,8 @@ class App extends Component{
             <BrowserRouter>
                 <div className="App">
                     <Header />
-                    <Banner />
+                    <Route exact path="/" component={Landing} />
+                    <Footer />
                 </div>
             </BrowserRouter>
         );

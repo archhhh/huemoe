@@ -4,7 +4,7 @@ import React from "react";
 const Banner = () => {
     return (
         <div className="banner">
-            <img src={require("../../assets/hero-bg.jpg")} />
+            <img src={require("../../../assets/hero-bg.jpg")} />
             <div className="banner-text">
                 <p>Ya sosal</p>
                 <h1>Menya Ebali</h1>

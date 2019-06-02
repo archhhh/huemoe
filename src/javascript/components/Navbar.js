@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 
@@ -21,7 +21,6 @@ const links = [
             },
       ]
   },
-  
   {
       path: '#', 
       text: 'About Us',
@@ -56,13 +55,13 @@ class Navbar extends Component {
                     {
                         links.map((link, i) => {
                             if(link.dropdown.length === 0){
-                                return <li className="navbar-link"><NavLink exact to={link.path} activeClassName="link-active">{link.text}</NavLink></li>;
+                                return <li className="navbar-link"><Link exact to={link.path}>{link.text}</Link></li>;
                             }else{
                                 return (
                                     <li className="navbar-link-dropdown">
                                         <p onClick={() => {this.toggleLink(i, !this.state.links[i])}}>{link.text}</p>
                                         <ul className={this.state.links[i] ? "navbar-dropdown-links-open" : "navbar-dropdown-links-closed"}>{ link.dropdown.map( (dropdownLink) => (
-                                            <li className="navbar-dropdown-link"><NavLink exact to={dropdownLink.path} activeClassName="link-active">{dropdownLink.text}</NavLink></li>
+                                            <li className="navbar-dropdown-link"><Link exact to={dropdownLink.path}>{dropdownLink.text}</Link></li>
                                         ) )}</ul>
                                     </li>
                                 );
