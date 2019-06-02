@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./Header";
+import Banner from "./Banner";
 
 
 class App extends Component{
@@ -7,6 +9,8 @@ class App extends Component{
         return (
             <BrowserRouter>
                 <div className="App">
+                    <Header />
+                    <Banner />
                 </div>
             </BrowserRouter>
         );
