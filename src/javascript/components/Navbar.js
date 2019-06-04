@@ -8,7 +8,7 @@ const links = [
       text: 'Catalog',
       dropdown: [
             {
-                path: '#', 
+                path: '/fields/cs', 
                 text: 'Computer Science',
             },
             {
