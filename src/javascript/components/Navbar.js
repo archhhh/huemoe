@@ -6,25 +6,10 @@ const links = [
   {
       path: '#', 
       text: 'Catalog',
-      dropdown: [
-            {
-                path: '/fields/cs', 
-                text: 'Computer Science',
-            },
-            {
-                path: '#', 
-                text: 'Chemistry',
-            },
-            {
-                path: '#', 
-                text: 'Math',
-            },
-      ]
   },
   {
       path: '#', 
       text: 'About Us',
-      dropdown: [],
   },
 ];
 
@@ -33,6 +18,20 @@ class Navbar extends Component {
         super(props);
         this.state = {
             links: new Array(links.length).fill(false),
+            catalog: [
+                {
+                    url: "/fields/cs",
+                    label: "Computer Science"
+                },
+                {
+                    url: "/fields/chemistry",
+                    label: "Chemistry"
+                },
+                {
+                    url: "/fields/Physics",
+                    label: "Physics"
+                },
+            ],
         };
     }
     toggleLink = (id, value) => {
@@ -54,15 +53,17 @@ class Navbar extends Component {
                 <ul className="navbar-links">
                     {
                         links.map((link, i) => {
-                            if(link.dropdown.length === 0){
+                            if(link.text !== "Catalog"){
                                 return <li className="navbar-link"><Link exact to={link.path}>{link.text}</Link></li>;
                             }else{
                                 return (
                                     <li className="navbar-link-dropdown">
                                         <p onClick={() => {this.toggleLink(i, !this.state.links[i])}}>{link.text}</p>
-                                        <ul className={this.state.links[i] ? "navbar-dropdown-links-open" : "navbar-dropdown-links-closed"}>{ link.dropdown.map( (dropdownLink) => (
-                                            <li className="navbar-dropdown-link"><Link exact to={dropdownLink.path}>{dropdownLink.text}</Link></li>
-                                        ) )}</ul>
+                                        <ul className={this.state.links[i] ? "navbar-dropdown-links-open" : "navbar-dropdown-links-closed"}>
+                                            { this.state.catalog.map( (item) => (
+                                                <li className="navbar-dropdown-link"><Link exact to={item.url}>{item.label}</Link></li>
+                                            ) )}
+                                        </ul>
                                     </li>
                                 );
                             }

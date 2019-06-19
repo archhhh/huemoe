@@ -5,9 +5,24 @@ import { Link } from "react-router-dom";
 const CoursesList = () => {
     return (
         <div className="courses-list">
+            <div className="courses-filters">
+                <input type="text" placeholder="Search"/>
+                <div className="courses-select">
+                    <button className="courses-select-input-left-button">Level</button>
+                    <button className="courses-select-input-right-button select-input-closed"></button>
+                    <ul className="courses-select-dropdown courses-select-dropdown-closed">
+                    </ul>
+                </div>
+                <div className="courses-select">
+                    <button className="courses-select-input-left-button">Organization</button>
+                    <button className="courses-select-input-right-button select-input-closed"></button>
+                    <ul className="courses-select-dropdown courses-select-dropdown-closed">
+                    </ul>
+                </div>
+            </div>
             <ul>
                 <li>
-                    <Link exact to="#">
+                    <Link exact to="/fields/cs/ml/stanford-machine-learning">
                         <div className="courses-item-img">
                             <img src={require("../../../assets/stanford-ml.jpg")}></img>
                         </div>
