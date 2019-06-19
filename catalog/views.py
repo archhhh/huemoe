@@ -5,6 +5,8 @@ from .forms import ContactForm
 from .models import Field, Course, Subfield, Content
 from django.urls import reverse_lazy
 from django.views import generic
+from rest_framework import viewsets
+from .serializers import FieldSerializer, SubfieldSerializer, CourseSerializer, ContentSerializer
 
 def home(request):
 	return render(request, 'catalog/home.html')
@@ -66,5 +68,18 @@ def content(request, fslug, sslug, cslug, content_title):
 	return render(request, 'catalog/content.html', {'course':course, 'content':content})
 
 
+class FieldView(viewsets.ModelViewSet):
+	serializer_class = FieldSerializer
+	queryset = Field.objects.all()
 
+class SubfieldView(viewsets.ModelViewSet):
+	serializer_class = SubfieldSerializer
+	queryset = Subfield.objects.all()
 
+class CourseView(viewsets.ModelViewSet):
+	serializer_class = CourseSerializer
+	queryset = Course.objects.all()
+
+class ContentView(viewsets.ModelViewSet):
+	serializer_class = ContentSerializer
+	queryset = Content.objects.all()

@@ -17,10 +17,19 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework import routers
 import catalog.views
+
+router = routers.DefaultRouter()
+router.register('fields', catalog.views.FieldView, 'field')
+router.register('subfields', catalog.views.SubfieldView, 'subfield')
+router.register('courses', catalog.views.CourseView, 'course')
+router.register('contents', catalog.views.ContentView, 'content')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('explore/', include('catalog.urls')),
     path('', catalog.views.home, name='home'),
     path('contact', catalog.views.contact, name='contact'),
