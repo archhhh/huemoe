@@ -4,7 +4,7 @@ import React from "react";
 const CourseBanner = (props) => {
     return (
         <div className="course-banner">
-            <img className="course-banner-img" src={require("../../../assets/stanford-machine-learning.jpg")} />
+            <img className="course-banner-img" src={require("../../assets/stanford-machine-learning.jpg")} />
             <div className="course-banner-text">
                 <div className="course-banner-text-left">
                     <p className="course-tags">
@@ -18,7 +18,7 @@ const CourseBanner = (props) => {
                 </div>
                 <div className="course-banner-text-right">
                     <div className="course-organization">
-                        <img className="course-organization-img" src={require("../../../assets/"+props.organizationImg)}></img>
+                        <img className="course-organization-img" src={require("../../assets/"+props.organizationImg)}></img>
                         <p className="course-organization-name">{props.organization}</p>
                     </div>
                     <p className="course-instructor">{props.language[props.courseLocale].course.instructor}: {props.instructor}</p>
