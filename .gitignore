@@ -83,6 +83,9 @@ instance/
 # Scrapy stuff:
 .scrapy
 
+# Node/Webpack
+.node_modules
+
 # Sphinx documentation
 docs/_build/
 

@@ -1,0 +1,53 @@
+export const russian = {
+    navigation: {
+        catalog: "каталог",
+        aboutUs: "о нас",
+    },
+    landingPage: {
+        bannerUpperText: "Верхний текст",
+        bannerLowerText: "Нижний текст",
+        bannerLeftButton: "каталог",
+        bannerRightButton: "о нас",
+        news: "Последние новости",
+        whyUs: "Почему мы?",
+        whyUsLeftTextTitle: "Высококачественные курсы",
+        whyUsLeftTextContent: "Мы собираем и переводим курсы, которые предоставляются такими учреждениями как MIT, Stanford и другими. Наша цель делать знания доступнее.",
+        whyUsLeftTextButton: "Каталог",
+        whyUsWebDesignTitle: "Веб разработка",
+        whyUsWebDesignDescription: "Научись основам веб разработки",
+        whyUsMathTitle: "Математика",
+        whyUsMathDescription: "Здесь ты разберешься, зачем тебе нужны интегралы",
+        whyUsChemistryTitle: "Химия",
+        whyUsChemistryDescription: "Изучай изменения",
+        whyUsAudioEngineeringTitle: "Звукоинженерия",
+        whyUsAudioEngineeringDescription: "Стань лучшим рэппером на soundcloud",
+        contactUs: "Есть пожелания? Свяжитесь с нами",
+        contactUsButton: "связаться",
+        footerGoal: "Цель",
+        footerGoalContent: "Сделать знания доступнее",
+        footerSiteMap: "Карта Сайта",
+        footerSiteMapHome: "Домой",
+        footerSiteMapCatalog: "Каталог",
+        footerSiteMapAboutUs: "О нас",
+        footerSiteMapLocation: "Локация",
+        footerSiteMapLocationContent: "Ташкент, Узбекистан",
+        footerSiteMapContacts: "Контакты",
+        footerSiteMapContactsEmail: "dimadebila@mail.ru",
+    },
+    fields: {
+        bannerTitle: "Каталог",
+        searchPlaceholder: "Поиск",
+    },
+    subfields: {
+        searchPlaceholder: "Поиск",
+    },
+    courses: {
+        searchPlaceholder: "Поиск",
+    },
+    course: {
+        week: "Неделя",
+        level: "Уровень",
+        instructor: "Инструктор",
+        supplementaryMaterials: "Дополнительные Материалы"
+    },
+};

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'star_ratings',
     'corsheaders',
     'rest_framework',
+    'frontend',
 ]
 
 MIDDLEWARE = [
