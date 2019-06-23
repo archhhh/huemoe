@@ -30,13 +30,18 @@ class CourseNav extends Component{
         return (
             <div className="course-nav">
                 <div className="course-nav-menu">
-                    <p className="course-nav-menu-active-title" onClick={this.toggleMenu}>
-                        Week {this.props.active.x+1}: {this.props.content[this.props.active.x][this.props.active.y].name}
+                    <p className={this.state.open ? "course-nav-menu-active-title open":"course-nav-menu-active-title"} onClick={this.toggleMenu}>
+                        {this.props.language[this.props.courseLocale].course.week} {this.props.active.x+1}: {this.props.content[this.props.active.x][this.props.active.y].name}
                     </p>
                     <ul className={this.state.open ? "course-nav-menu-weeks open": "course-nav-menu-weeks"}>
                         {this.props.content.map((weeklyContent, i) => 
                             <li className="course-nav-menu-dropdown-week">
-                                <p className="course-nav-menu-dropdown-week-number" onClick={() => {this.toggleWeek(i)}}>Week {i+1}</p>
+                                <p 
+                                    className={this.state.openWeeks[i] ? "course-nav-menu-dropdown-week-number open": "course-nav-menu-dropdown-week-number"} 
+                                    onClick={() => {this.toggleWeek(i)}}
+                                >
+                                    {this.props.language[this.props.courseLocale].course.week} {i+1}
+                                </p>
                                 <ul 
                                     className={this.state.openWeeks[i] ? "course-nav-menu-dropdown-days open" : "course-nav-menu-dropdown-days"} 
                                     onClick={(e) => {this.pickActive({x: Number(e.target.getAttribute("x")), y: Number(e.target.getAttribute("y"))})}}

@@ -1,38 +1,36 @@
 import React from "react";
 
 
-const AboutUsLanding = () => {
+const AboutUsLanding = (props) => {
     return (
         <div className="about-us-landing">
-            <h1>About Us</h1>
+            <h1>{props.language[props.locale].landingPage.whyUs}</h1>
             <div className="about-us-main">
                 <div className="about-us-sidetext">
-                    <h3>Хуяк хуяк</h3>
-                    <p>И в продакшен. Начальный гайд. Как поднять свою жопу с нуля без регистрации и смс. Архитектура какая еще архитектура,
-                        я сосал меня ебали
-                    </p>
-                    <button>ИДЕМ ВЫСТУПАТЬ</button>
+                    <h3>{props.language[props.locale].landingPage.whyUsLeftTextTitle}</h3>
+                    <p>{props.language[props.locale].landingPage.whyUsLeftTextContent}</p>
+                    <button>{props.language[props.locale].landingPage.whyUsLeftTextButton}</button>
                 </div>
                 <ul className="about-us-list">
                     <li>
                         <i class="fab fa-css3-alt"></i>
-                        <h2>Web десигн</h2>
-                        <p>Да ебись оно все в жопу</p>
+                        <h2>{props.language[props.locale].landingPage.whyUsWebDesignTitle}</h2>
+                        <p>{props.language[props.locale].landingPage.whyUsWebDesignDescription}</p>
                     </li>
                     <li>
-                        <i class="fas fa-hand-holding-usd"></i>
-                        <h2>Finance</h2>
-                        <p>Закупаем, продаем, фиксируем прибыль</p>
+                        <i class="fas fa-square-root-alt"></i>
+                        <h2>{props.language[props.locale].landingPage.whyUsMathTitle}</h2>
+                        <p>{props.language[props.locale].landingPage.whyUsMathDescription}</p>
                     </li>
                     <li>
                         <i class="fas fa-atom"></i>
-                        <h2>Chemistry</h2>
-                        <p>wanna cook?</p>
+                        <h2>{props.language[props.locale].landingPage.whyUsChemistryTitle}</h2>
+                        <p>{props.language[props.locale].landingPage.whyUsChemistryDescription}</p>
                     </li>
                     <li>
                         <i class="fas fa-headphones-alt"></i>
-                        <h2>Audio Engineering</h2>
-                        <p>Как стать рэппером на soundcloud с нуля</p>
+                        <h2>{props.language[props.locale].landingPage.whyUsAudioEngineeringTitle}</h2>
+                        <p>{props.language[props.locale].landingPage.whyUsAudioEngineeringDescription}</p>
                     </li>
                 </ul>
             </div>

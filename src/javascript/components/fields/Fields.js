@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import FieldsBanner from "./FieldsBanner";
 import FieldsList from "./FieldsList";
-import Header from "../Header";
 
 
 class Fields extends Component{
@@ -12,42 +11,59 @@ class Fields extends Component{
             fields: [
                 {
                     img: "cs.jpg",
-                    name: "Камблюктер саенс",
-                    description: "Как взломать жопу",
+                    name: {
+                        RU: "Информатика",
+                        EN: "Computer Science",
+                    },
+                    description: {
+                        RU: "",
+                        EN: "",
+                    },
                     url: "/fields/cs",
                 },
                 {
                     img: "chemistry.jpg",
-                    name: "Chemistry",
-                    description: "Химия химия",
+                    name: {
+                        RU: "Химия",
+                        EN: "Chemistry",
+                    },
+                    description: {
+                        RU: "",
+                        EN: "",
+                    },
                     url: "/fields/chemistry",
                 },
                 {
-                    img: "arts.jpg",
-                    name: "Arts",
-                    description: "тут не научат находить работу",
-                    url: "/fields/arts",
-                },
-                {
                     img: "math.jpg",
-                    name: "Math",
-                    description: "нахуй мне интегралы в макдаке",
+                    name: {
+                        RU: "Математика",
+                        EN: "Math",
+                    },
+                    description: {
+                        RU: "",
+                        EN: "",
+                    },
                     url: "/fields/math",
                 },
             ],
         };
     }
-    changeSearchValue = (value) => {
+    changeSearchValue = (e) => {
         this.setState({
-            searchValue:value,
+            searchValue: e.target.value,
         });
     };
     render(){
         return (
             <div className="fields">
-                <Header />
-                <FieldsBanner/>
-                <FieldsList fields = {this.state.fields} changeSearchValue = {this.changeSearchValue} searchValue = {this.state.searchValue}/>
+                <FieldsBanner language={this.props.language} locale={this.props.locale}/>
+                <FieldsList 
+                    fields = {this.state.fields} 
+                    changeSearchValue = {this.changeSearchValue} 
+                    searchValue = {this.state.searchValue}
+                    language={this.props.language} 
+                    locale={this.props.locale}
+                />
             </div>
         );
     }

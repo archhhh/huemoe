@@ -1,13 +1,13 @@
 import React from "react";
 
 
-const SubFieldsBanner = () => {
+const SubFieldsBanner = (props) => {
     return (
         <div className="subfields-banner">
-            <img src={require("../../../assets/csbanner.jpg")} />
+            <img src={require("../../../assets/" + props.img)} />
             <div className="subfields-banner-text">
-                <h1>Computer Science</h1>
-                <p>Study of computers and computational systems</p>
+                <h1>{props.name[props.locale]}</h1>
+                <p>{props.description[props.locale]}</p>
             </div>
         </div>
     );

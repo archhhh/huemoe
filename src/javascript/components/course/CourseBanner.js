@@ -13,15 +13,15 @@ const CourseBanner = (props) => {
                         )}
                     </p>
                     <h1 className="course-name">{props.name}</h1>
-                    <p className="course-level">Level: {props.level}</p>
-                    <p className="course-language">Language</p>
+                    <p className="course-level">{props.language[props.courseLocale].course.level}: {props.level}</p>
+                    <p className="course-language">{props.courseLocale}</p>
                 </div>
                 <div className="course-banner-text-right">
                     <div className="course-organization">
                         <img className="course-organization-img" src={require("../../../assets/"+props.organizationImg)}></img>
                         <p className="course-organization-name">{props.organization}</p>
                     </div>
-                    <p className="course-instructor">Instructor: {props.instructor}</p>
+                    <p className="course-instructor">{props.language[props.courseLocale].course.instructor}: {props.instructor}</p>
                 </div>
             </div>
         </div>

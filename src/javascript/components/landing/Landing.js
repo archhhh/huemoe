@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Banner from "./Banner";
 import NewsLanding from "./NewsLanding";
 import AboutUsLanding from "./AboutUsLanding";
-import Header from "../Header";
 
 
 class Landing extends Component{
@@ -36,10 +35,9 @@ class Landing extends Component{
     render(){
         return(
             <div className="landing">
-                <Header />
-                <Banner />
-                <NewsLanding news={this.state.news}/>
-                <AboutUsLanding />
+                <Banner language={this.props.language} locale={this.props.locale}/>
+                <NewsLanding news={this.state.news} language={this.props.language} locale={this.props.locale}/>
+                <AboutUsLanding language={this.props.language} locale={this.props.locale}/>
             </div>
         );
     }

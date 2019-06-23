@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const CoursesList = () => {
+const CoursesList = (props) => {
     return (
         <div className="courses-list">
             <div className="courses-filters">
-                <input type="text" placeholder="Search"/>
+                <input type="text" placeholder={props.language[props.locale].courses.searchPlaceholder} onChange={props.changeSearchValue} value={props.searchValue}/>
                 <div className="courses-select">
                     <button className="courses-select-input-left-button">Level</button>
                     <button className="courses-select-input-right-button select-input-closed"></button>
@@ -21,47 +21,30 @@ const CoursesList = () => {
                 </div>
             </div>
             <ul>
+                { props.courses.map((course) => 
                 <li>
-                    <Link exact to="/fields/cs/ml/stanford-machine-learning">
+                    <Link exact to={course.url}>
                         <div className="courses-item-img">
-                            <img src={require("../../../assets/stanford-ml.jpg")}></img>
+                            <img src={require("../../../assets/"+course.img)}></img>
                         </div>
                         <div className="courses-item-text">
                                 <div className="courses-profile">   
-                                    <img src={require("../../../assets/stanford.jpg")} />
-                                    <p>Stanford University</p>
+                                    <img src={require("../../../assets/" + course.organizationImg)} />
+                                    <p>{course.organization}</p>
                                 </div>
                                 <div className="line"></div>
                                 <div className="courses-info">
-                                    <h2>Machine Learning</h2>
-                                    <p className="courses-level">Beginner</p>
-                                    <p className="courses-tags"><span>machine learning</span><span>deep learning</span></p>
-                                    <p className="courses-description">This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition.</p>
+                                    <h2>{course.name[props.locale]}</h2>
+                                    <p className="courses-level">{course.level[props.locale]}</p>
+                                    <p className="courses-tags">
+                                            {course.tags[props.locale].map( (tag) => <span>{tag}</span>)}
+                                    </p>
+                                    <p className="courses-description">{course.description[props.locale]}</p>
                                 </div>
                         </div>
                     </Link>
-                </li>
-                <li>
-                    <Link exact to="#">
-                        <div className="courses-item-img">
-                            <img src={require("../../../assets/deeplearningai-ai4e.jpg")}></img>
-                        </div>
-                        <div className="courses-item-text">
-                                <div className="courses-profile">   
-                                    <img src={require("../../../assets/deeplearningai.jpg")} />
-                                    <p>deeplearning.ai</p>
-                                </div>
-                                <div className="line"></div>
-                                <div className="courses-info">
-                                    <h2>Deep Learning</h2>
-                                    <p className="courses-level">Intermediate</p>
-                                    <p className="courses-tags"><span>machine learning</span><span>deep learning</span></p>
-                                    <p className="courses-description">Deep Learning is one of the most highly sought after skills in tech. We will help you become good at Deep Learning.</p>
-                                </div>
-                        </div>
-                    </Link>
-                </li>
-                
+                </li>                
+                )}
             </ul>
         </div>
     );

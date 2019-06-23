@@ -6,7 +6,7 @@ const FieldsList = (props) => {
     return (
         <div className="fields-list">
             <div className="fields-filters">
-                <input type="text" placeholder="Search" value={props.searchValue} onChange={(e) => {props.changeSearchValue(e.target.value)}}/>
+                <input type="text" placeholder={props.language[props.locale].fields.searchPlaceholder} value={props.searchValue} onChange={props.changeSearchValue}/>
             </div>
             <ul>
                 { props.fields.map((field) => (
@@ -16,9 +16,9 @@ const FieldsList = (props) => {
                                 <img src={require("../../../assets/"+field.img)}></img>
                             </div>
                             <div className="fields-item-text">
-                                    <h2>{field.name}</h2>
+                                    <h2>{field.name[props.locale]}</h2>
                                     <div className="line"></div>
-                                    <p>{field.description}</p>
+                                    <p>{field.description[props.locale]}</p>
                             </div>
                         </Link>
                     </li>                    

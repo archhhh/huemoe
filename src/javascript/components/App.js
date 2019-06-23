@@ -7,20 +7,29 @@ import SubFields from "./subfields/SubFields";
 import Courses from "./courses/Courses";
 import Course from "./course/Course";
 import ContactUsLanding from "./landing/ContactUsLanding";
+import Header from "./Header";
+import {language} from "../utils/language";
 
 
 class App extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            locale: "RU",
+        };
+    }
     render(){
         return (
             <BrowserRouter>
                 <div className="App">
-                    <Route exact path="/" component={Landing} />
-                    <Route exact path="/fields" component={Fields} />
-                    <Route exact path="/fields/:field" component={SubFields} />
-                    <Route exact path="/fields/:field/:subfield" component={Courses} />
-                    <Route exact path="/fields/:field/:subfield/:course" component={Course} />
-                    <ContactUsLanding />
-                    <Footer />
+                    <Header language={language} locale={this.state.locale}/>
+                    <Route exact path="/" render={(props) => <Course {...props} language={language} locale={this.state.locale} />}/>
+                    <Route exact path="/fields" render={(props) => <Fields {...props} language={language} locale={this.state.locale} />} />
+                    <Route exact path="/fields/:field" render={(props) => <SubFields {...props} language={language} locale={this.state.locale} />} />
+                    <Route exact path="/fields/:field/:subfield" render={(props) => <Courses {...props} language={language} locale={this.state.locale} />} />
+                    <Route exact path="/fields/:field/:subfield/:course" render={(props) => <Course {...props} language={language} locale={this.state.locale} />} />
+                    <ContactUsLanding language={language} locale={this.state.locale}/>
+                    <Footer language={language} locale={this.state.locale} />
                 </div>
             </BrowserRouter>
         );

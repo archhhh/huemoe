@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "./Navbar";
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header>
-            <Navbar />
+            <Navbar language={props.language} locale={props.locale}/>
         </header>
     );
 };

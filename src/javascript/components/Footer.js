@@ -2,28 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const Footer = () => {
+const Footer = (props) => {
     return (
         <footer className="footer">
             <div className="footer-lists">
                 <ul>
-                    <li className="title">Mission</li>
-                    <li>Блять, да мне похуй на тебя, блять, слушай, какая у тебя там тачка, блять, квартиры, срачки там блять, яхты, всё, мне похуй</li>
+                    <li className="title">{props.language[props.locale].landingPage.footerGoal}</li>
+                    <li>{props.language[props.locale].landingPage.footerGoalContent}</li>
                 </ul>
                 <ul>
-                    <li className="title">Sitemap</li>
-                    <li><Link exact to="/">Home</Link></li>
-                    <li><Link exact to="/">Courses</Link></li>
-                    <li><Link exact to="/">About Us</Link></li>
+                    <li className="title">{props.language[props.locale].landingPage.footerSiteMap}</li>
+                    <li><Link exact to="/">{props.language[props.locale].landingPage.footerSiteMapHome}</Link></li>
+                    <li><Link exact to="/">{props.language[props.locale].landingPage.footerSiteMapCatalog}</Link></li>
+                    <li><Link exact to="/">{props.language[props.locale].landingPage.footerSiteMapAboutUs}</Link></li>
                 </ul>
                 <ul>
-                    <li className="title">Location</li>
-                    <li>Ding Dong, Texas, United States</li>
+                    <li className="title">{props.language[props.locale].landingPage.footerSiteMapLocation}</li>
+                    <li>{props.language[props.locale].landingPage.footerSiteMapLocationContent}</li>
                 </ul>
 
                 <ul>
-                    <li className="title">Email</li>
-                    <li>dimadebila@mail.ru</li>
+                    <li className="title">{props.language[props.locale].landingPage.footerSiteMapContacts}</li>
+                    <li>{props.language[props.locale].landingPage.footerSiteMapContactsEmail}</li>
                 </ul>
             </div>
             <div className="footer-socials">

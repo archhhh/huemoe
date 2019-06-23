@@ -2,37 +2,48 @@ import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 
-const links = [
-  {
-      path: '#', 
-      text: 'Catalog',
-  },
-  {
-      path: '#', 
-      text: 'About Us',
-  },
-];
+
 
 class Navbar extends Component {
     constructor(props){
         super(props);
+        this.links = [
+            {
+                path: '#', 
+                text: this.props.language[this.props.locale].navigation.catalog,
+            },
+            {
+                path: '#', 
+                text: this.props.language[this.props.locale].navigation.aboutUs,
+            },
+        ];
         this.state = {
-            links: new Array(links.length).fill(false),
+            links: new Array(this.links.length).fill(false),
             catalog: [
                 {
                     url: "/fields/cs",
-                    label: "Computer Science"
+                    label: {
+                        RU: "Информатика",
+                        EN: "Computer Science",
+                    }
                 },
                 {
                     url: "/fields/chemistry",
-                    label: "Chemistry"
+                    label: {
+                        RU: "Химия",
+                        EN: "Chemistry",
+                    },
                 },
                 {
-                    url: "/fields/Physics",
-                    label: "Physics"
+                    url: "/fields/math",
+                    label: {
+                        RU: "Математика",
+                        EN: "Math",
+                    },
                 },
             ],
         };
+
     }
     toggleLink = (id, value) => {
         this.setState({
@@ -52,16 +63,16 @@ class Navbar extends Component {
                 </button>
                 <ul className="navbar-links">
                     {
-                        links.map((link, i) => {
-                            if(link.text !== "Catalog"){
+                        this.links.map((link, i) => {
+                            if(link.text !== this.props.language[this.props.locale].navigation.catalog){
                                 return <li className="navbar-link"><Link exact to={link.path}>{link.text}</Link></li>;
                             }else{
                                 return (
                                     <li className="navbar-link-dropdown">
                                         <p onClick={() => {this.toggleLink(i, !this.state.links[i])}}>{link.text}</p>
-                                        <ul className={this.state.links[i] ? "navbar-dropdown-links-open" : "navbar-dropdown-links-closed"}>
+                                        <ul onClick={() => {this.toggleLink(i, !this.state.links[i])}} className={this.state.links[i] ? "navbar-dropdown-links-open" : "navbar-dropdown-links-closed"}>
                                             { this.state.catalog.map( (item) => (
-                                                <li className="navbar-dropdown-link"><Link exact to={item.url}>{item.label}</Link></li>
+                                                <li className="navbar-dropdown-link"><Link exact to={item.url}>{item.label[this.props.locale]}</Link></li>
                                             ) )}
                                         </ul>
                                     </li>

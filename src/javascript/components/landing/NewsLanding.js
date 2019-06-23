@@ -4,7 +4,7 @@ import React from "react";
 const NewsLanding = (props) => {
     return (
         <div className="news-landing">
-            <h1>А что вы делаете в моем холодильнике</h1>
+            <h1>{props.language[props.locale].landingPage.news}</h1>
             <ul className="news-landing-list">
                 { props.news.map((news) => (
                     <li className="news-landing-item">
