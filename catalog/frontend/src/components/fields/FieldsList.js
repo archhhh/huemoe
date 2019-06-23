@@ -13,7 +13,7 @@ const FieldsList = (props) => {
                     <li>
                         <Link exact to={field.url}>
                             <div className="fields-item-img">
-                                <img src={require("../../../assets/"+field.img)}></img>
+                                <img src={require("../../assets/"+field.img)}></img>
                             </div>
                             <div className="fields-item-text">
                                     <h2>{field.name[props.locale]}</h2>

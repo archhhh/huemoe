@@ -25,11 +25,11 @@ const CoursesList = (props) => {
                 <li>
                     <Link exact to={course.url}>
                         <div className="courses-item-img">
-                            <img src={require("../../../assets/"+course.img)}></img>
+                            <img src={require("../../assets/"+course.img)}></img>
                         </div>
                         <div className="courses-item-text">
                                 <div className="courses-profile">   
-                                    <img src={require("../../../assets/" + course.organizationImg)} />
+                                    <img src={require("../../assets/" + course.organizationImg)} />
                                     <p>{course.organization}</p>
                                 </div>
                                 <div className="line"></div>

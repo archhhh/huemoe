@@ -13,7 +13,7 @@ const SubFieldsList = (props) => {
                     <li>
                         <Link to={subfield.url}>
                             <div>
-                                <img src={require("../../../assets/"+subfield.img)}></img>
+                                <img src={require("../../assets/"+subfield.img)}></img>
                             </div>
                             <h2>{subfield.name[props.locale]}</h2>
                             <p>{subfield.description[props.locale]}</p>
