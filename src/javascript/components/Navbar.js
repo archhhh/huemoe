@@ -18,6 +18,7 @@ class Navbar extends Component {
             },
         ];
         this.state = {
+            toggleButton: false,
             links: new Array(this.links.length).fill(false),
             catalog: [
                 {
@@ -50,18 +51,23 @@ class Navbar extends Component {
             links: this.state.links.map((link, i) => i === id ? value : false),
         });
     };
+    toggleButton = () => {
+        this.setState({
+            toggleButton: !this.state.toggleButton,
+        });
+    };
     render(){
         return (
             <nav className="navbar">
                 <h1 class="logo">
                     <Link to="/">HAHAYES</Link>
                 </h1>
-                <button type="button" className="navbar-toggle">
+                <button type="button" className="navbar-toggle" onClick={this.toggleButton}>
                         <span className="navbar-toggle-bar"></span>
                         <span className="navbar-toggle-bar"></span>
                         <span className="navbar-toggle-bar"></span> 
                 </button>
-                <ul className="navbar-links">
+                <ul className={this.state.toggleButton ? "navbar-links open" : "navbar-links"}>
                     {
                         this.links.map((link, i) => {
                             if(link.text !== this.props.language[this.props.locale].navigation.catalog){
