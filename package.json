@@ -4,8 +4,8 @@
   "description": "Service that provides educational content from top-ranked universities, popular MOOCs (like Coursera, Udemy, etc.) translated into Russian and Uzbek languages. We use Django for backend and ReactJS for front-end",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server --mode development ./frontend/src/index.js --output ./frontend/static/frontend/main.js--open --hot",
+    "build": "webpack --mode production ./frontend/src/index.js --output ./frontend/static/frontend/main.js"
   },
   "repository": {
     "type": "git",
