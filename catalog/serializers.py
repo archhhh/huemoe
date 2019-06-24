@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from .models import Field, Subfield, Course, Content
+
 
 class FieldSerializer(serializers.ModelSerializer):
 
