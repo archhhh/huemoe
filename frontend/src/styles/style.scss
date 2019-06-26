@@ -1143,10 +1143,10 @@ header{
                 background-color: #ffffff;  
             }
             .course-nav-menu-weeks{
-                
                 list-style-type:none;
                 margin-top:15px;
                 position:absolute;
+                z-index:2;
                 width:100%;
                 max-height:0;
                 overflow:hidden;
@@ -1216,6 +1216,13 @@ header{
                 }
             }
         }
+        .course-content-video{
+            float:left;
+            #my-player{
+                width:640px;
+                height:360px;
+            }
+        }
         .course-content-text{
             float:left;
             h1{
@@ -1256,6 +1263,10 @@ header{
         }
         padding-top:70px;
     }
+}
+.vjs-default-skin .vjs-seek-to-live-text { display: none; }
+.video-js .vjs-control-bar{
+    display:flex;
 }
 @media screen and (max-width: 1270px){
     .news-landing .news-landing-list .news-landing-item{
@@ -1325,20 +1336,25 @@ header{
     .courses .courses-list .courses-filters .courses-select{
         margin-bottom:20px;
     }
-}
-
-@media screen and (max-width: 1100px){
+    .course .course-content .course-content-text{
+        float:none;
+    }
+    .course .course-content .course-content-video{
+        float:none;
+    }
     .course .course-content .course-content-supplementary{
         float:none;
         margin-bottom:20px;
     }
+}
+
+@media screen and (max-width: 1100px){
+
     .course .course-content .course-content-supplementary .course-content-supplementary-materials li{
         display:inline-block;
         margin-right:20px;
     }
-    .course .course-content .course-content-text{
-        float:none;
-    }
+
 }
 
 @media screen and (max-width: 1050px){
@@ -1401,6 +1417,10 @@ header{
     .course .course-banner .course-banner-text{
         top:60px;
     }
+    .course .course-content .course-content-video #my-player{
+            width:480px;
+            height:240px;
+    }   
 }
 @media screen and (max-width: 800px){
     .footer .footer-lists ul{
@@ -1534,6 +1554,10 @@ header{
     .course .course-content{
         padding:50px 0;
     }
+    .course .course-content .course-content-video #my-player{
+        width:360px;
+        height:240px;
+    }   
 }
 @media screen and (max-width: 600px){
     .news-landing .news-landing-list .news-landing-item img{
@@ -1769,6 +1793,10 @@ header{
         width:90%;
         margin-left:5%;
     }
+    .course .course-content .course-content-video #my-player{
+        width:240px;
+        height:150px;
+    }   
 }
 @media screen and (max-width: 440px){
     .banner .banner-text{

@@ -29,7 +29,8 @@
     "react-router-hash-link": "^1.2.1",
     "react-select": "^2.4.3",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "video.js": "^7.5.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

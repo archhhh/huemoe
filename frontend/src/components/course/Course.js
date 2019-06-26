@@ -21,9 +21,21 @@ class Course extends Component{
             content: [
                 [
                     {
-                        name: "Вступление в курс",
-                        type: "text",
-                        data: "<h1>Вступление в курс</h1><p>Добро пожаловать на курс Машинного Обучения</p>",     
+                        name: "Вступление в Машинное Обучение",
+                        type: "video",
+                        url: "videos/2.mp4",
+                        subtitles: [
+                            {
+                                label: "English",
+                                lang: "en",
+                                url: "videos/2eng.vtt",
+                            },
+                            {
+                                label: "Russian",
+                                lang: "ru",
+                                url: "videos/2ru.vtt",
+                            },                            
+                        ],
                         supplementaryMaterials: [
                             {
                                 url: "",
@@ -38,7 +50,19 @@ class Course extends Component{
                     {
                         name: "Вступление в Машинное Обучение",
                         type: "video",
-                        url: "",
+                        url: "videos/2.mp4",
+                        subtitles: [
+                            {
+                                label: "English",
+                                lang: "en",
+                                url: "videos/2eng.vtt",
+                            },
+                            {
+                                label: "Russian",
+                                lang: "ru",
+                                url: "videos/2ru.vtt",
+                            },                            
+                        ],
                         supplementaryMaterials: [
                             {
                                 url: "",
@@ -55,7 +79,8 @@ class Course extends Component{
                     {
                         name: "Линейная Регрессия",
                         type: "video",
-                        url: "",     
+                        url: "",
+                        subtitles: {},
                         supplementaryMaterials: [
                             {
                                 url: "",
@@ -71,6 +96,7 @@ class Course extends Component{
                         name: "Обратное распространение",
                         type: "video",
                         url: "",
+                        subtitles: {},
                         supplementaryMaterials: [
                             {
                                 url: "",
