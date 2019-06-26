@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CoursesBanner from "./CoursesBanner";
 import CoursesList from "./CoursesList";
+import Header from "../Header";
 
 
 class Courses extends Component{
@@ -73,6 +74,7 @@ class Courses extends Component{
     render(){
         return (
             <div className="courses">
+                <Header language={this.props.language} locale={this.props.locale}/>
                 <CoursesBanner 
                     locale={this.props.locale}
                     img={this.state.img} 

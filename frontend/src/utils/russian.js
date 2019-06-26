@@ -4,11 +4,12 @@ export const russian = {
         aboutUs: "о нас",
     },
     landingPage: {
-        bannerUpperText: "Верхний текст",
-        bannerLowerText: "Нижний текст",
+        bannerUpperText: "Тут ничего",
+        bannerLowerText: "Интересного",
         bannerLeftButton: "каталог",
         bannerRightButton: "о нас",
         news: "Последние новости",
+        newsEmpty: "Опа пусто",
         whyUs: "Почему мы?",
         whyUsLeftTextTitle: "Высококачественные курсы",
         whyUsLeftTextContent: "Мы собираем и переводим курсы, которые предоставляются такими учреждениями как MIT, Stanford и другими. Наша цель делать знания доступнее.",
@@ -21,7 +22,7 @@ export const russian = {
         whyUsChemistryDescription: "Изучай изменения",
         whyUsAudioEngineeringTitle: "Звукоинженерия",
         whyUsAudioEngineeringDescription: "Стань лучшим рэппером на soundcloud",
-        contactUs: "Есть пожелания? Свяжитесь с нами",
+        contactUs: "Узнай о нас больше",
         contactUsButton: "связаться",
         footerGoal: "Цель",
         footerGoalContent: "Сделать знания доступнее",
@@ -50,4 +51,10 @@ export const russian = {
         instructor: "Инструктор",
         supplementaryMaterials: "Дополнительные Материалы"
     },
+    aboutUs: {
+        text: "О нас ходят разные сплетни, но мы не такие"
+    },
+    error: {
+        text: "Иди домой"
+    }
 };

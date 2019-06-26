@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FieldsBanner from "./FieldsBanner";
 import FieldsList from "./FieldsList";
+import Header from "../Header";
 
 
 class Fields extends Component{
@@ -56,6 +57,7 @@ class Fields extends Component{
     render(){
         return (
             <div className="fields">
+                <Header language={this.props.language} locale={this.props.locale}/>
                 <FieldsBanner language={this.props.language} locale={this.props.locale}/>
                 <FieldsList 
                     fields = {this.state.fields} 

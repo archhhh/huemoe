@@ -13,7 +13,7 @@ class Navbar extends Component {
                 text: this.props.language[this.props.locale].navigation.catalog,
             },
             {
-                path: '#', 
+                path: '/about-us', 
                 text: this.props.language[this.props.locale].navigation.aboutUs,
             },
         ];

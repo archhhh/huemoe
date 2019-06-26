@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SubFieldsBanner from "./SubFieldsBanner";
 import SubFieldsList from "./SubFieldsList";
+import Header from "../Header";
 
 
 class SubFields extends Component{
@@ -65,6 +66,7 @@ class SubFields extends Component{
     render(){
         return (
             <div className="subfields">
+                <Header language={this.props.language} locale={this.props.locale}/>
                 <SubFieldsBanner 
                     locale={this.props.locale} 
                     language={this.props.language} 
