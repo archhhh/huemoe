@@ -21,21 +21,9 @@ class Course extends Component{
             content: [
                 [
                     {
-                        name: "Вступление в Машинное Обучение",
-                        type: "video",
-                        url: "videos/2.mp4",
-                        subtitles: [
-                            {
-                                label: "English",
-                                lang: "en",
-                                url: "videos/2eng.vtt",
-                            },
-                            {
-                                label: "Russian",
-                                lang: "ru",
-                                url: "videos/2ru.vtt",
-                            },                            
-                        ],
+                        name: "Вступление в курс",
+                        type: "text",
+                        data: "<h1>Вступление в курс</h1><p>Добро пожаловать на курс Машинного Обучения</p>",     
                         supplementaryMaterials: [
                             {
                                 url: "",
@@ -75,40 +63,6 @@ class Course extends Component{
                         ],
                     },
                 ],
-                [
-                    {
-                        name: "Линейная Регрессия",
-                        type: "video",
-                        url: "",
-                        subtitles: {},
-                        supplementaryMaterials: [
-                            {
-                                url: "",
-                                name: "слайды",
-                            },
-                            {
-                                url: "",
-                                name: "конспекты",
-                            }
-                        ],
-                    },
-                    {
-                        name: "Обратное распространение",
-                        type: "video",
-                        url: "",
-                        subtitles: {},
-                        supplementaryMaterials: [
-                            {
-                                url: "",
-                                name: "слайды",
-                            },
-                            {
-                                url: "",
-                                name: "конспекты",
-                            }
-                        ],
-                    },  
-                ]
             ],
             active: {
                 x: 0,

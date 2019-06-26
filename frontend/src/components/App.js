@@ -24,7 +24,7 @@ class App extends Component{
             <BrowserRouter>
                 <div className="App">
                     <Switch>
-                        <Route exact path="/" render={(props) => <Course {...props} language={language} locale={this.state.locale} />}/>
+                        <Route exact path="/" render={(props) => <Landing {...props} language={language} locale={this.state.locale} />}/>
                         <Route exact path="/fields" render={(props) => <Fields {...props} language={language} locale={this.state.locale} />} />
                         <Route exact path="/fields/:field" render={(props) => <SubFields {...props} language={language} locale={this.state.locale} />} />
                         <Route exact path="/fields/:field/:subfield" render={(props) => <Courses {...props} language={language} locale={this.state.locale} />} />

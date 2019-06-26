@@ -25,6 +25,7 @@ class CourseContent extends Component{
                 ? (
                     <div className="course-content-video"> 
                         <video id="my-player" class="vjs-default-skin video-js vjs-big-play-centered" controls data-setup='{}'>
+                            
                             <source src={require("../../assets/"+this.props.content.url)} type="video/mp4" />
                             {this.props.content.subtitles.map((subtitle) => {
                                 return this.props.courseLocale.toLowerCase() === subtitle.lang 
