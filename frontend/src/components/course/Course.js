@@ -26,11 +26,11 @@ class Course extends Component{
                         data: "<h1>Вступление в курс</h1><p>Добро пожаловать на курс Машинного Обучения</p>",     
                         supplementaryMaterials: [
                             {
-                                url: "",
+                                url: "#",
                                 name: "слайды",
                             },
                             {
-                                url: "",
+                                url: "#",
                                 name: "конспекты",
                             }
                         ],
@@ -53,11 +53,11 @@ class Course extends Component{
                         ],
                         supplementaryMaterials: [
                             {
-                                url: "",
+                                url: "#",
                                 name: "слайды",
                             },
                             {
-                                url: "",
+                                url: "#",
                                 name: "конспекты",
                             }
                         ],

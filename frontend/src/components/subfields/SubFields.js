@@ -17,7 +17,7 @@ class SubFields extends Component{
                 "RU": "",
                 "EN": "",
             },
-            img: "csbanner.jpg",
+            img: "csbanner1.jpg",
             subfields: [
                 {
                     img: "ml.png",

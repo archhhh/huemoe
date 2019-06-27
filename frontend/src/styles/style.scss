@@ -398,7 +398,7 @@ header{
             font-size:40px;
         }
         h1{
-            font-size:60px;
+            font-size:50px;
             font-weight:normal;
         }
         .banner-button-why{
@@ -788,7 +788,7 @@ header{
             margin-left:10%;
             position:absolute;
             color: #ffffff;
-            top: 120px;
+            top: 110px;
             text-transform: uppercase;
             h1{
                 font-size:50px;
@@ -896,7 +896,7 @@ header{
             margin-left:10%;
             position:absolute;
             color: #ffffff;
-            top: 120px;
+            top: 110px;
             text-transform: uppercase;
             h1{
                 font-size:50px;
@@ -1222,6 +1222,11 @@ header{
                 width:640px;
                 height:360px;
             }
+            h1{
+                font-size:30px;
+                font-weight:normal;
+                margin-bottom:10px;
+            }
         }
         .course-content-text{
             float:left;
@@ -1368,8 +1373,15 @@ header{
     .contact-us-landing button{
         float:none;
     }
+    .course .course-banner .course-banner-text .course-name {
+        font-size:36px;
+    }
 }
-
+@media screen and (max-width: 900px){
+    .course .course-banner .course-banner-text .course-name{
+        font-size:30px;
+    }
+}
 @media screen and (max-width: 850px){
     .fields .fields-list .fields-filters{
         width: 600px;
@@ -1402,25 +1414,16 @@ header{
     .courses .courses-list .courses-filters input{
         margin-bottom:20px;
     }
-    .courses .courses-banner .courses-banner-text h1{
-        font-size:36px;
-    }
-    .courses .courses-banner .courses-banner-text p{
-        font-size:18px;
-    }
-    .course .course-banner .course-banner-text .course-name{
-        font-size:30px;
-    }
-    .course .course-banner .course-banner-text .course-level, .course .course-banner .course-banner-text .course-instructor{
-        font-size: 14px;
-    }
-    .course .course-banner .course-banner-text{
-        top:60px;
-    }
     .course .course-content .course-content-video #my-player{
             width:480px;
             height:240px;
     }   
+    .fields .fields-banner .fields-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1, .courses .courses-banner .courses-banner-text h1{
+        font-size:36px;
+    }
+    .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
+        font-size:22px;
+    }
 }
 @media screen and (max-width: 800px){
     .footer .footer-lists ul{
@@ -1447,6 +1450,7 @@ header{
 }
 
 @media screen and (max-width: 700px){
+
     .banner .banner-text p{
         text-align:center;
         font-size:26px;
@@ -1508,25 +1512,19 @@ header{
     .fields .fields-list ul li .fields-item-text p{
         font-size: 14px;
     }
-    .fields .fields-banner .fields-banner-text h1{
-        font-size:36px;
+    .fields .fields-banner .fields-banner-text h1, 
+    .subfields .subfields-banner .subfields-banner-text h1, 
+    .courses .courses-banner .courses-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1{
+        font-size:30px;
+    }
+    .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
+        font-size:20px;
     }
     .course .course-banner .course-banner-text .course-name{
         font-size:24px;
     }
     .course .course-banner .course-banner-text .course-level, .course .course-banner .course-banner-text .course-instructor{
         font-size: 14px;
-    }
-    .course .course-banner .course-banner-text{
-        top:60px;
-    }
-    .course .course-banner .course-banner-text .course-organization .course-organization-img{
-        width:40px;
-        height:40px;
-    }
-    .course .course-banner .course-banner-text .course-organization .course-organization-name{
-        font-size: 14px;
-        margin-top:5px;
     }
     .course .course-nav .course-nav-menu .course-nav-menu-active-title{
         font-size:14px;
@@ -1545,8 +1543,8 @@ header{
     .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number.open{
         background-position: 300px 12px;
     }
-    .course .course-content .course-content-text h1{
-        font-size:24px;
+    .course .course-content .course-content-text h1, .course .course-content .course-content-video h1{
+        font-size:22px;
     }
     .course .course-content .course-content-text p, .course .course-content .course-content-supplementary .course-content-supplementary-title{
         font-size:16px;
@@ -1580,17 +1578,8 @@ header{
     .about-us-landing .about-us-main .about-us-sidetext{
         margin-bottom:80px;
     }
-    .subfields .subfields-banner .subfields-banner-text h1{
-        font-size:36px;
-    }
-    .subfields .subfields-banner .subfields-banner-text p{
-        font-size:18px;
-    }
 }
 @media screen and (max-width:550px) {
-    .subfields .subfields-banner .subfields-banner-text{
-        top:80px;
-    }
     .courses .courses-list .courses-filters{
         width: 270px;
     }
@@ -1628,29 +1617,27 @@ header{
     .courses .courses-list ul li{
         width:270px;
     }
-    .courses .courses-banner .courses-banner-text h1{
+    .fields .fields-banner .fields-banner-text h1, .courses .courses-banner .courses-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1{
         font-size:30px;
     }
-    .courses .courses-banner .courses-banner-text p{
+    .fields .fields-banner .fields-banner-text p, .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
         font-size:14px;
     }
-    .courses .courses-banner .courses-banner-text{
+    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text{
         top:80px;
-    }
-    .course .course-banner .course-banner-text{
-        top:40px;
-    }
-    .course .course-banner .course-banner-text .course-name, .course .course-banner .course-banner-text .course-organization{
-        margin-bottom:5px;
-    }
-    .course .course-banner .course-banner-text .course-name{
-        font-size:20px;
-    }
-    .course .course-banner .course-banner-text .course-level, .course .course-banner .course-banner-text .course-instructor{
-        font-size:12px;
     }
 }
 @media screen and (max-width: 510px){
+    .course .course-banner .course-banner-text{
+        top:50px;
+    }
+    .course .course-banner .course-banner-text .course-level{
+        margin-right:0;
+        display:block;
+    }
+    .subfields .subfields-banner .subfields-banner-text{
+        top:80px;
+    }
     .banner .banner-text{
         top:100px;
     }
@@ -1766,11 +1753,21 @@ header{
     }
 }
 @media screen and (max-width: 450px){
-    .course .course-banner .course-banner-text .course-level, .course .course-banner .course-banner-text .course-instructor{
-        font-size:10px;
+    .course .course-banner .course-banner-text .course-organization{
+        width:200px;
     }
-    .course .course-banner .course-banner-text{
-        top:20px;
+    .course .course-banner .course-banner-text .course-organization .course-organization-img{
+        width:50px;
+        height:50px;
+    }
+    .course .course-banner .course-banner-text .course-name{
+        font-size:20px;
+    }
+    .course .course-banner .course-banner-text .course-organization .course-organization-name{
+        font-size:12px;
+    }
+    .course .course-banner .course-banner-text .course-level{
+        margin-bottom:5px;
     }
     .course .course-nav .course-nav-menu{
         width:250px;
@@ -1797,6 +1794,9 @@ header{
         width:240px;
         height:150px;
     }   
+    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text{
+        top:60px;
+    }
 }
 @media screen and (max-width: 440px){
     .banner .banner-text{
@@ -1832,9 +1832,6 @@ header{
     .subfields .subfields-banner .subfields-banner-text p{
         font-size:16px;
     }
-    .subfields .subfields-banner .subfields-banner-text{
-        top:60px;
-    }
     .subfields .subfields-list .subfields-filters{
         input{
             width:150px;
@@ -1855,22 +1852,20 @@ header{
     .subfields .subfields-list ul li div{
         height:150px;
     }
-    .subfields .subfields-banner .subfields-banner-text h1{
-        font-size:24px;
-    }
-    .subfields .subfields-banner .subfields-banner-text p{
-        font-size:14px;
-    }
-    .subfields .subfields-banner .subfields-banner-text{
-        top:60px;
-    }
+
 }
 @media screen and (max-width: 400px){
-    .courses .courses-banner .courses-banner-text{
+    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text{
         top:45px;
     }
-    .courses .courses-banner .courses-banner-text h1{
-        font-size:24px;
+    .courses .courses-banner .courses-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1{
+        font-size:20px;
+    }
+    .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
+        font-size:12px;
+    }
+    .subfields .subfields-banner .subfields-banner-text{
+        top:50px;
     }
 }
 @media screen and (max-width: 370px){
@@ -1885,6 +1880,9 @@ header{
     }
     .fields .fields-banner .fields-banner-text{
         top:80px;
+    }
+    .subfields .subfields-banner .subfields-banner-text p{
+        font-size:14px;
     }
     .fields .fields-list .fields-filters{
         width: 280px;
@@ -1914,8 +1912,8 @@ header{
     .fields .fields-list ul li .fields-item-text p{
         font-size: 12px;
     }
-    .fields .fields-banner .fields-banner-text h1{
-        font-size:30px;
+    .course .course-banner .course-banner-text{
+        top:30px;
     }
 }
 @media screen and (max-width: 340px){
