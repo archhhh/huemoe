@@ -1,17 +1,21 @@
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework.routers import DefaultRouter
 
 from . import api
 
 import frontend
 
 
+router = DefaultRouter()
+router.register('api/fields', api.FieldViewSet, basename='field')
+router.register('api/subfields', api.SubfieldViewSet, basename='subfield')
+router.register('api/courses', api.CourseViewSet, basename='course')
+router.register('api/contents', api.ContentViewSet, basename='content')
+
 urlpatterns = [
-    path('api/fields/', api.FieldList.as_view()),
-    path('api/subfields/', api.SubfieldList.as_view()),
-    path('api/courses/', api.CourseList.as_view()),
-    path('api/content/', api.ContentList.as_view()),
+	path('', include(router.urls)),
     path('', include('frontend.urls')),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,13 +1,16 @@
 from django.db import models
+# from django.contrib.postgres.fields import ArrayField, JSONField
+from picklefield.fields import PickledObjectField
 
 
 class Field(models.Model):
-	title = models.CharField(max_length=255)
-	title_ru = models.CharField(max_length=255)
-	slug = models.SlugField(max_length=255, unique=True)
-	description = models.CharField(max_length=510)
-	description_ru = models.CharField(max_length=510)
-	pic = models.ImageField(upload_to='images/fields', blank=True, null=True)
+	title = models.CharField(max_length=150)
+	title_ru = models.CharField(max_length=150)
+	slug = models.SlugField(max_length=150, unique=True)
+	description = models.CharField(max_length=100)
+	description_ru = models.CharField(max_length=100)
+	img_banner = models.ImageField(upload_to='images/fields', blank=True, null=True)
+	img_thumbnail = models.ImageField(upload_to='images/fields', blank=True, null=True)
 
 	class Meta:
 		ordering = ['title']
@@ -18,24 +21,34 @@ class Field(models.Model):
 
 class Subfield(models.Model):
 	field = models.ForeignKey(Field, related_name='subfields', on_delete=models.CASCADE)
-	title = models.CharField(max_length=255)
-	title_ru = models.CharField(max_length=255)
-	slug = models.SlugField(max_length=255, unique=True)
-	pic = models.ImageField(upload_to='images/subfields', blank=True, null=True)
-	description = models.TextField()
-	description_ru = models.TextField()
+	title = models.CharField(max_length=150)
+	title_ru = models.CharField(max_length=150)
+	slug = models.SlugField(max_length=150, unique=True)
+	img_banner = models.ImageField(upload_to='images/subfields', blank=True, null=True)
+	img_thumbnail = models.ImageField(upload_to='images/subfields', blank=True, null=True)
+	description = models.TextField(max_length=100)
+	description_ru = models.TextField(max_length=100)
 
 	def __str__(self):
 		return self.title
 
 class Course(models.Model):
 	subfield = models.ForeignKey(Subfield, related_name='courses', on_delete=models.CASCADE, null=True)
-	title = models.CharField(max_length=255)
-	title_ru = models.CharField(max_length=255)
-	slug = models.SlugField(max_length=255, unique=True)
+	title = models.CharField(max_length=150)
+	title_ru = models.CharField(max_length=150)
+	slug = models.SlugField(max_length=150, unique=True)
 	description = models.CharField(max_length=510)
 	description_ru = models.CharField(max_length=510)
-	pic = models.ImageField(upload_to='images/courses', blank=True, null=True)
+	img_banner = models.ImageField(upload_to='images/courses', blank=True, null=True)
+	img_thumbnail = models.ImageField(upload_to='images/courses', blank=True, null=True)
+	organization_name = models.CharField(max_length=150)
+	organization_img = models.ImageField(upload_to='images/courses', blank=True, null=True)
+	instructor = models.CharField(max_length=150)
+	level = models.CharField(max_length=150)
+	level_ru = models.CharField(max_length=150)
+	# tags = models.ArrayField(models.CharField(max_length=100), blank=True)
+	# tags_ru = models.ArrayField(models.CharField(max_length=100), blank=True)
+	# supported_languages = models.JSONField()
 
 	def __str__(self):
 		return '{}. {}'.format(self.id, self.title)
@@ -48,6 +61,10 @@ class Content(models.Model):
 	text = models.TextField(null=True, blank=True)
 	text_ru = models.TextField(null=True, blank=True)
 	video = models.URLField(null=True, blank=True)
-	file = models.FileField(upload_to='files', null=True, blank=True)
 	added = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
+	week = models.IntegerField()
+	order = models.IntegerField()
+	subtitle = models.FileField(upload_to='subtitles', null=True, blank=True)
+	supplementary_materials = models.FileField(upload_to='supplementary_materials', null=True, blank=True)
+	
