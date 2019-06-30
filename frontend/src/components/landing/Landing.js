@@ -30,7 +30,12 @@ class Landing extends Component{
         super(props);
         this.state = {
             news: [
-               
+                {
+                    header: "Мы запустились",
+                    description: "Ура",
+                    date: "6/29/2019",
+                    thumbnail: "volk.jpg",
+                },
             ],
         };
     }

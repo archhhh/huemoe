@@ -18,6 +18,7 @@ const NewsLanding = (props) => {
                             <img src={news.thumbnail}></img>
                             <div className="news-landing-text">
                                 <h2>{news.header}</h2>
+                                <p className="news-date">{news.date}</p>
                                 <p>{news.description}</p>
                             </div>
                         </li>                    
@@ -26,7 +27,6 @@ const NewsLanding = (props) => {
               )
               
             }
-
         </div>
     );
 };
