@@ -16,9 +16,9 @@ const FieldsList = (props) => {
                                 <img src={require("../../assets/"+field.img)}></img>
                             </div>
                             <div className="fields-item-text">
-                                    <h2>{field.name[props.locale]}</h2>
+                                    <h2>{field.name}</h2>
                                     <div className="line"></div>
-                                    <p>{field.description[props.locale]}</p>
+                                    <p>{field.description}</p>
                             </div>
                         </Link>
                     </li>                    

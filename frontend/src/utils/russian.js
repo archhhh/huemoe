@@ -44,6 +44,8 @@ export const russian = {
     },
     courses: {
         searchPlaceholder: "Поиск",
+        level: "Уровень",
+        supportedLanguages: "Переведено на",
     },
     course: {
         week: "Неделя",

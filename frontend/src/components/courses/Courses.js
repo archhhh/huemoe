@@ -9,59 +9,35 @@ class Courses extends Component{
         super(props);
         this.state = {
             searchValue: "",
-            name: {
-                "RU": "Машинное обучение",
-                "EN": "Machine Learning",
-            },
-            description: {
-                "RU": "Текст",
-                "EN": "Text",
-            },
+            name: "Машинное обучение",
+            description: "Текст",
             img: "mlbanner.jpg",
             courses: [
                 {
                     img: "stanford-ml.jpg",
                     organization: "Stanford University",
                     organizationImg: "stanford.jpg",
-                    level: {
-                        "RU": "Начальный",
-                        "EN": "Undergraduate Beginner"
-                    },
-                    name: {
-                        "RU": "Машинное обучение",
-                        "EN": "Machine Learning",
-                    },
-                    description: {
-                        "RU": "Текст",
-                        "EN": "Text",
-                    },
+                    level: "Начальный",
+                    name: "Машинное обучение",
+                    description: "Текст",
                     url: "/fields/cs/ml/stanford-machine-learning",
-                    tags: {
-                        "RU": ["машинное обучение", "глубокое обучение"],
-                        "EN": ["machine learning", "deep learning"]
-                    },
+                    tags: ["машинное обучение", "глубокое обучение"],
+                    supportedLanguages: [
+                        "EN", "RU",
+                    ],
                 },
                 {
                     img: "deeplearningai-ai4e.jpg",
                     organization: "deeplearning.ai",
                     organizationImg: "deeplearningai.jpg",
-                    level: {
-                        "RU": "Начальный",
-                        "EN": "Undergraduate Beginner"
-                    },
-                    name: {
-                        "RU": "Глубокое обучение",
-                        "EN": "Deep Learning",
-                    },
-                    description: {
-                        "RU": "Текст",
-                        "EN": "Text",
-                    },
+                    level: "Начальный",
+                    name: "Глубокое обучение",
+                    description: "Текст",
                     url: "/fields/cs/ml/deeplearningai-deeplearning",
-                    tags: {
-                        "RU": ["машинное обучение", "глубокое обучение"],
-                        "EN": ["machine learning", "deep learning"]
-                    },
+                    tags: ["машинное обучение", "глубокое обучение"],
+                    supportedLanguages: [
+                        "EN", "RU",
+                    ],
                 },
             ],
         };

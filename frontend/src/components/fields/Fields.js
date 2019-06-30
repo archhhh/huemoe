@@ -12,38 +12,20 @@ class Fields extends Component{
             fields: [
                 {
                     img: "cs.jpg",
-                    name: {
-                        RU: "Информатика",
-                        EN: "Computer Science",
-                    },
-                    description: {
-                        RU: "",
-                        EN: "",
-                    },
+                    name: "Информатика",
+                    description: "",
                     url: "/fields/cs",
                 },
                 {
                     img: "chemistry.jpg",
-                    name: {
-                        RU: "Химия",
-                        EN: "Chemistry",
-                    },
-                    description: {
-                        RU: "",
-                        EN: "",
-                    },
+                    name: "Химия",
+                    description: "",
                     url: "/fields/chemistry",
                 },
                 {
                     img: "math.jpg",
-                    name: {
-                        RU: "Математика",
-                        EN: "Math",
-                    },
-                    description: {
-                        RU: "",
-                        EN: "",
-                    },
+                    name: "Математика",
+                    description: "",
                     url: "/fields/math",
                 },
             ],

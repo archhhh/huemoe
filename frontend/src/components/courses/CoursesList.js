@@ -7,7 +7,7 @@ const CoursesList = (props) => {
         <div className="courses-list">
             <div className="courses-filters">
                 <input type="text" placeholder={props.language[props.locale].courses.searchPlaceholder} onChange={props.changeSearchValue} value={props.searchValue}/>
-                <div className="courses-select">
+                {/*<div className="courses-select">
                     <button className="courses-select-input-left-button">Level</button>
                     <button className="courses-select-input-right-button select-input-closed"></button>
                     <ul className="courses-select-dropdown courses-select-dropdown-closed">
@@ -18,7 +18,7 @@ const CoursesList = (props) => {
                     <button className="courses-select-input-right-button select-input-closed"></button>
                     <ul className="courses-select-dropdown courses-select-dropdown-closed">
                     </ul>
-                </div>
+                </div>*/}
             </div>
             <ul>
                 { props.courses.map((course) => 
@@ -34,12 +34,13 @@ const CoursesList = (props) => {
                                 </div>
                                 <div className="line"></div>
                                 <div className="courses-info">
-                                    <h2>{course.name[props.locale]}</h2>
-                                    <p className="courses-level">{course.level[props.locale]}</p>
+                                    <h2>{course.name}</h2>
+                                    <p className="courses-level">{props.language[props.locale].courses.level}: {course.level}</p>
                                     <p className="courses-tags">
-                                            {course.tags[props.locale].map( (tag) => <span>{tag}</span>)}
+                                            {course.tags.map( (tag) => <span>{tag}</span>)}
                                     </p>
-                                    <p className="courses-description">{course.description[props.locale]}</p>
+                                    <p className="courses-languages">{props.language[props.locale].courses.supportedLanguages}: {course.supportedLanguages.map( (language, index) => index === course.supportedLanguages.length-1 ? language : `${language}, ` )}</p>
+                                    <p className="courses-description">{course.description}</p>
                                 </div>
                         </div>
                     </Link>

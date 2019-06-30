@@ -295,7 +295,13 @@
     padding: 0;
     margin: 0;
 }
-
+.vjs-text-track-display{
+    div:first-child{
+        div:first-child{
+            text-align:center!important;
+        }
+    }
+}
 header{
     position: relative;
     z-index:1;
@@ -305,8 +311,16 @@ header{
         a{
             color: #ffffff;
             text-decoration: none;
+            display:block;
+            height:40px;
         }
-        margin-left:10%;
+        margin-left:12%;
+        text-indent: -99999px;
+        background-image: url(../assets/logo.png);
+        width:56px;
+        height:40px;
+        background-size: 56px 40px;
+
     }
     .navbar{
         margin-right:10%;
@@ -317,7 +331,7 @@ header{
     .navbar-links{
         float:right;
         list-style-type:none;
-        
+        padding-top:7px;
         .navbar-link, .navbar-link-dropdown{
             cursor: pointer;
             color: #ffffff;
@@ -465,6 +479,7 @@ header{
             width:45%;
             margin-right:10%;
             display:inline-block;
+            vertical-align: top;
             &:nth-child(2n){
               margin-right:0;  
             }
@@ -481,9 +496,13 @@ header{
                     font-size:24px;
                 }
                 p{
-                    margin-top:15px;
+                    margin-top:10px;
                     font-size: 16px;
                     line-height: 1.5;
+                }
+                .news-date{
+                    font-size:12px;
+
                 }
                 width:100%;
             }
@@ -1032,9 +1051,10 @@ header{
                             text-transform: uppercase;
                             word-wrap: wrap;
                         }
-                        .courses-level{
+                        .courses-level,.courses-languages{
                             font-size: 14px;
                             font-style:italic;
+                            margin-top:5px;
                         }
                         .courses-tags{
                             margin-top:10px;
@@ -1053,7 +1073,7 @@ header{
                         }
                     }
                     .courses-description{
-                        margin-top:20px;
+                        margin-top:10px;
                         font-size: 16px;
                         line-height: 2;
                         font-weight: 300;
@@ -1691,6 +1711,13 @@ header{
     }
     header{
         padding-bottom:0;
+        padding-top:15px;
+    }
+    header .logo{
+        width:50px;
+        height:35px;
+        background-size:50px 35px;
+        margin-left:15%;    
     }
     header .navbar-toggle-bar{
         border-top:1px solid #ffffff;
@@ -1703,10 +1730,11 @@ header{
         background-color:transparent;
         border: 1px solid #ffffff;
         border-color: rgba(255,255,255,0.5);
-        padding:10px 10px 5px 10px;
+        padding:7px 7px 2px 7px;
         cursor:pointer;
         float:right;
         margin-bottom:20px;
+        margin-top:5px;
     }
     header .navbar-links{
         display:none;
@@ -1832,7 +1860,7 @@ header{
     .subfields .subfields-banner .subfields-banner-text p{
         font-size:16px;
     }
-    .subfields .subfields-list .subfields-filters{
+    .subfields .subfields-list .subfields-filters, .fields .fields-list .fields-filters, .courses .courses-list .courses-filters{
         input{
             width:150px;
             font-size:16px;

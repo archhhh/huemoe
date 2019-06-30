@@ -4,18 +4,40 @@ import videojs from "video.js";
 
 class CourseContent extends Component{
     componentDidUpdate(){
-        if(this.props.content.type === "video"){
-            this.player = videojs('my-player');
-        }else{
-            if (this.player) {
-                this.player.dispose()
+        if(this.props.content.type === "video")
+        {
+            if(this.player)
+            {
+                let videoSrc = require("../../assets/videos/"+this.props.content.url);
+                this.player.src({
+                    src: videoSrc
+                });
+                let oldTracks = this.player.remoteTextTracks();
+                let i = oldTracks.length;
+                while (i--) {
+                    this.player.removeRemoteTextTrack(oldTracks[i]);
+                }
+                let captionsSrc = require("../../assets/videos/"+this.props.content.subtitles.url)
+                this.player.addRemoteTextTrack({
+                    kind: 'captions',
+                    src: captionsSrc,
+                    srcLang: this.props.content.subtitles.lang,
+                    label: this.props.content.subtitles.label,
+                    align: 'center',
+                });
             }
+            else
+                this.player = videojs('my-player');
+        }
+    }
+    componentDidUnmount(){
+        if (this.player) {
+            this.player.dispose();
         }
     }
     componentDidMount(){
-        if(this.props.content.type === "video"){
+        if(this.props.content.type ==="video")
             this.player = videojs('my-player');
-        }
     }
     render() {
         return (
@@ -37,15 +59,9 @@ class CourseContent extends Component{
                             {this.props.content.name}
                         </h1>
                         <video-js id="my-player" class="vjs-matrix video-js vjs-big-play-centered" controls data-setup='{}'>
-                                <source src={require("../../assets/"+this.props.content.url)} type="video/mp4" />
-                                {this.props.content.subtitles.map((subtitle) => {
-                                    return this.props.courseLocale.toLowerCase() === subtitle.lang 
-                                        ? <track kind='captions' src={require("../../assets/"+subtitle.url)} srcLang={subtitle.lang} label={subtitle.label} default />
-                                        : <track kind='captions' src={require("../../assets/"+subtitle.url)} srcLang={subtitle.lang} label={subtitle.label}/> 
-                                    ;
-                                })} 
+                                <source src={require("../../assets/videos/"+this.props.content.url)} type="video/mp4" />
+                                <track kind='captions' src={require("../../assets/videos/"+this.props.content.subtitles.url)} srcLang={this.props.content.subtitles.lang} label={this.props.content.subtitles.label} />
                         </video-js>
-
                     </div> 
                 )
                 : <div className="course-content-text" dangerouslySetInnerHTML={{__html: this.props.content.data}}></div>}

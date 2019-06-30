@@ -10,6 +10,7 @@ import ContactUsLanding from "./landing/ContactUsLanding";
 import AboutUs from "./aboutUs/AboutUs";
 import {language} from "../utils/language";
 import Error from "./error/Error";
+import LOCALES from "../utils/locales";
 
 
 class App extends Component{
@@ -24,7 +25,7 @@ class App extends Component{
             <BrowserRouter>
                 <div className="App">
                     <Switch>
-                        <Route exact path="/" render={(props) => <Landing {...props} language={language} locale={this.state.locale} />}/>
+                        <Route exact path="/" render={(props) => <Course {...props} language={language} locale={this.state.locale} />}/>
                         <Route exact path="/fields" render={(props) => <Fields {...props} language={language} locale={this.state.locale} />} />
                         <Route exact path="/fields/:field" render={(props) => <SubFields {...props} language={language} locale={this.state.locale} />} />
                         <Route exact path="/fields/:field/:subfield" render={(props) => <Courses {...props} language={language} locale={this.state.locale} />} />
@@ -33,7 +34,7 @@ class App extends Component{
                         <Route render={(props) => <Error {...props} language={language} locale={this.state.locale} />} />
                     </Switch>
                     <ContactUsLanding language={language} locale={this.state.locale}/>
-                    <Footer language={language} locale={this.state.locale} />
+                    <Footer language={language} locale={this.state.locale}/>
                 </div>
             </BrowserRouter>
         );

@@ -59,7 +59,7 @@ class Navbar extends Component {
     render(){
         return (
             <nav className="navbar">
-                <h1 class="logo">
+                <h1 className="logo">
                     <Link to="/">HAHAYES</Link>
                 </h1>
                 <button type="button" className="navbar-toggle" onClick={this.toggleButton}>
