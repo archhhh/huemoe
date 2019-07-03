@@ -10,12 +10,12 @@ class Courses extends Component{
         this.state = {
             searchValue: "",
             name: "Машинное обучение",
-            description: "Текст",
+            description: "Обширный подраздел искусственного интеллекта, изучающий методы построения алгоритмов, способных обучаться",
             img: "mlbanner.jpg",
             courses: [
                 {
                     img: "stanford-ml.jpg",
-                    organization: "Stanford University",
+                    organization: "Стэнфордский Университет",
                     organizationImg: "stanford.jpg",
                     level: "Начальный",
                     name: "Машинное обучение",
