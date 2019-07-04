@@ -1,6 +1,5 @@
 from django.db import models
 # from django.contrib.postgres.fields import ArrayField, JSONField
-from picklefield.fields import PickledObjectField
 
 
 class Field(models.Model):

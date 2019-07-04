@@ -50,16 +50,9 @@ class CourseViewSet(viewsets.ViewSet):
 
 
 
-class ContentViewSet(viewsets.ViewSet):
-	
-	def list(self, request):
-		queryset = Content.objects.all()
-		serializer = ContentSerializer(queryset, many=True)
-		return Response(serializer.data)
-
-	def retrieve(self, request, pk=None):
-		queryset = Content.objects.all()
-		content = get_object_or_404(queryset, pk=pk)
-		serializer = ContentSerializer(content)
-		return Response(serializer.data)
+class ContentViewSet(viewsets.ModelViewSet):
+	queryset = Content.objects.all()
+	serializer_class = ContentSerializer
+	filter_backends = (DjangoFilterBackend,)
+	filter_fields = ('course',)
 

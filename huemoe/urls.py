@@ -24,8 +24,7 @@ import catalog
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('ratings/', include('star_ratings.urls', namespace='ratings')),
-    path('', include('frontend.urls')),
     path('', include('catalog.urls')),
+    path('', include('frontend.urls')),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
