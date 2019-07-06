@@ -55,6 +55,26 @@ class Course extends Component{
                             }
                         ],
                     },
+                    {
+                        name: "Вступление в Машинное Обучение",
+                        type: "video",
+                        url: "2.mp4",
+                        subtitles: {
+                            label: "English",
+                            lang: "en",
+                            url: "2eng.vtt",
+                        },
+                        supplementaryMaterials: [
+                            {
+                                url: "#",
+                                name: "слайды",
+                            },
+                            {
+                                url: "#",
+                                name: "конспекты",
+                            }
+                        ],
+                    },
                     
                 ],
             ],

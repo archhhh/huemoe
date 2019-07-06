@@ -28,6 +28,11 @@ class CourseContent extends Component{
             }
             else
                 this.player = videojs('my-player');
+        }else{
+            if (this.player) {
+                this.player.dispose();
+                this.player = null;
+            }
         }
     }
     componentDidUnmount(){
