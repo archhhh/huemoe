@@ -7,7 +7,6 @@ const Error = (props) => {
     return(
         <div className="error">
             <Header language={props.language} locale={props.locale}/>
-            <Banner language={props.language} locale={props.locale}/>
             <div className="error-content">
                 <p>{props.language[props.locale].error.text}</p>
             </div>

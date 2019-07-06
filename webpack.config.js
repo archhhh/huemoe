@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: "./frontend/src/index.js",
+    entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "bundle.js"
@@ -34,13 +34,13 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|ico)$/i,
+                test: /\.(jpe?g|png|gif|ico|mp4|vtt|srt)$/i,
                 use: [
                   {
                     loader: 'file-loader',
                     options: {
                       name: '[name].[ext]',
-                      publicPath: '/static/frontend'
+                      publicPath: '/static/frontend/'
                     }
                   }
                 ]
@@ -64,7 +64,8 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                       limit: 10000,
-                      mimetype: 'application/octet-stream'
+                      mimetype: 'application/octet-stream',
+                      publicPath: '/static/frontend/',
                     }
                   }
                 ]
@@ -85,7 +86,7 @@ module.exports = {
     },
     plugins: [
       new HtmlWebpackPlugin({
-          template: "./frontend/src/index.html"
+          template: "./src/index.html"
       })  
     ]
 };
