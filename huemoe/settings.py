@@ -25,7 +25,7 @@ SECRET_KEY = '@m)l)g=e4nla#$_sozw5ihvos!_35%lt=kg$k%7_cvi(+#_#)n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["67.205.173.77", "0.0.0.0"]
 
 
 # Application definition
@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': 'huemoe',
         'USER': 'admin',
         'PASSWORD': 'password',
-        'HOST': '0.0.0.0',
-        'PORT': '8000',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
