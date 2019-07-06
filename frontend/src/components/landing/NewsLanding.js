@@ -15,7 +15,7 @@ const NewsLanding = (props) => {
                 <ul className="news-landing-list">
                     { props.news.map((news) => (
                         <li className="news-landing-item">
-                            <img src={"/static/frontend" + news.thumbnail}></img>
+                            <img src={require("../../assets/" + news.thumbnail)}></img>
                             <div className="news-landing-text">
                                 <h2>{news.header}</h2>
                                 <p className="news-date">{news.date}</p>
