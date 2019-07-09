@@ -11,12 +11,12 @@ const SubFieldsList = (props) => {
             <ul>
                 { props.subfields.map((subfield) => 
                     <li>
-                        <Link to={subfield.url}>
+                        <Link to={"/subfields/"+subfield.url}>
                             <div>
-                                <img src={require("../../assets/"+subfield.img)}></img>
+                                <img src={subfield.img}></img>
                             </div>
-                            <h2>{subfield.name[props.locale]}</h2>
-                            <p>{subfield.description[props.locale]}</p>
+                            <h2>{subfield.name}</h2>
+                            <p>{subfield.description}</p>
                         </Link>
                     </li>                
                 )}

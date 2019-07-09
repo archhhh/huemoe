@@ -2,34 +2,46 @@ import React, { Component } from "react";
 import FieldsBanner from "./FieldsBanner";
 import FieldsList from "./FieldsList";
 import Header from "../Header";
+import axios from "axios";
 
 
 class Fields extends Component{
     constructor(props){
         super(props);
         this.state = {
+            isLoading: false,
             searchValue: "",
             fields: [
-                {
-                    img: "cs.jpg",
-                    name: "Информатика",
-                    description: "",
-                    url: "/fields/cs",
-                },
-                {
-                    img: "chemistry.jpg",
-                    name: "Химия",
-                    description: "",
-                    url: "/fields/chemistry",
-                },
-                {
-                    img: "math.jpg",
-                    name: "Математика",
-                    description: "",
-                    url: "/fields/math",
-                },
             ],
         };
+    }
+    componentDidMount = () => {
+        this.setState({
+            isLoading: true,
+        });
+        axios.get(`http://67.205.173.77:8000/api/fields`)
+        .then((resp) => {
+            console.log(resp.data);
+            this.setState({
+                isLoading: false,
+                fields: resp.data.map((item) => {
+                    return {
+                        img: item.img_thumbnail,
+                        name: this.props.locale === "EN" 
+                              ? item.title 
+                              : item["title_"+this.props.locale.toLowerCase()] 
+                                ? item["title_"+this.props.locale.toLowerCase()]
+                                : item.title,
+                        description: this.props.locale === "EN" 
+                                     ? item.description 
+                                     : item["description_"+this.props.locale.toLowerCase()] 
+                                       ? item["description_"+this.props.locale.toLowerCase()]
+                                       : item.description,
+                        url: item.id                 
+                    };
+                })
+            });
+        });
     }
     changeSearchValue = (e) => {
         this.setState({
@@ -39,6 +51,7 @@ class Fields extends Component{
     render(){
         return (
             <div className="fields">
+                { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
                 <Header language={this.props.language} locale={this.props.locale}/>
                 <FieldsBanner language={this.props.language} locale={this.props.locale}/>
                 <FieldsList 

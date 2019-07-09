@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/archhhh/huemoe#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "nodejs": "0.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-datepicker": "^2.5.0",

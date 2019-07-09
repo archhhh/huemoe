@@ -4,10 +4,10 @@ import React from "react";
 const SubFieldsBanner = (props) => {
     return (
         <div className="subfields-banner">
-            <img src={require("../../assets/" + props.img)} />
+            <img src={props.img} />
             <div className="subfields-banner-text">
-                <h1>{props.name[props.locale]}</h1>
-                <p>{props.description[props.locale]}</p>
+                <h1>{props.name}</h1>
+                <p>{props.description}</p>
             </div>
         </div>
     );

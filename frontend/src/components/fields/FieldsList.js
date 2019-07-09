@@ -11,9 +11,9 @@ const FieldsList = (props) => {
             <ul>
                 { props.fields.map((field) => (
                     <li>
-                        <Link exact to={field.url}>
+                        <Link exact to={"/fields/"+field.url}>
                             <div className="fields-item-img">
-                                <img src={require("../../assets/"+field.img)}></img>
+                                <img src={field.img}></img>
                             </div>
                             <div className="fields-item-text">
                                     <h2>{field.name}</h2>
