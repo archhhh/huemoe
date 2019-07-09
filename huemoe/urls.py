@@ -21,10 +21,11 @@ from rest_framework import routers
 
 import catalog
 
-urlpatterns = [
+urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+[
 
     path('admin/', admin.site.urls),
     path('', include('catalog.urls')),
     path('', include('frontend.urls')),
 
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+] 
+#+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

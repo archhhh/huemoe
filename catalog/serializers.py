@@ -21,9 +21,10 @@ class CourseSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Course
 		fields = (
-			'id', 'subfield', 'title', 'title_ru', 'description', \
-			'description_ru', 'img_banner', 'img_thumbnail', 'organization_name', \
-			'organization_img', 'instructor', 'level', 'level_ru', \
+			'id', 'subfield', 'title', 'title_ru', 'description',
+			'description_ru', 'img_banner', 'img_thumbnail', 'organization_name',
+			'organization_img', 'organization_url', 'instructor', 'instructior_url',
+			'level', 'level_ru',
 		)
 
 
@@ -32,7 +33,7 @@ class ContentSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Content
 		fields = (
-			'id', 'course', 'title', 'title_ru', 'text', 'text_ru', \
-			'video', 'added', 'updated', 'week', 'order', 'subtitle', \
+			'id', 'course', 'title', 'title_ru', 'text', 'text_ru',
+			'video', 'added', 'updated', 'week', 'order', 'subtitle',
 			'supplementary_materials',
 		)

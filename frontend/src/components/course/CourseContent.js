@@ -35,7 +35,7 @@ class CourseContent extends Component{
             }
         }
     }
-    componentDidUnmount(){
+    componentWillUnmount(){
         if (this.player) {
             this.player.dispose();
         }

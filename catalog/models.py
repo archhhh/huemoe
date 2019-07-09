@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.postgres.fields import ArrayField, JSONField
+from django.contrib.postgres.fields import ArrayField, JSONField
 
 
 class Field(models.Model):
@@ -42,12 +42,14 @@ class Course(models.Model):
 	img_thumbnail = models.ImageField(upload_to='images/courses', blank=True, null=True)
 	organization_name = models.CharField(max_length=150)
 	organization_img = models.ImageField(upload_to='images/courses', blank=True, null=True)
+	organization_url = models.URLField()
 	instructor = models.CharField(max_length=150)
+	instructior_url = models.URLField()
 	level = models.CharField(max_length=150)
 	level_ru = models.CharField(max_length=150)
-	# tags = models.ArrayField(models.CharField(max_length=100), blank=True)
-	# tags_ru = models.ArrayField(models.CharField(max_length=100), blank=True)
-	# supported_languages = models.JSONField()
+	tags = ArrayField(models.CharField(max_length=100), blank=True)
+	tags_ru = ArrayField(models.CharField(max_length=100), blank=True)
+	supported_languages = JSONField()
 
 	def __str__(self):
 		return '{}. {}'.format(self.id, self.title)
@@ -59,7 +61,7 @@ class Content(models.Model):
 	slug = models.SlugField(max_length=255, unique=True)
 	text = models.TextField(null=True, blank=True)
 	text_ru = models.TextField(null=True, blank=True)
-	video = models.URLField(null=True, blank=True)
+	video = models.FileField(null=True, blank=True)
 	added = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	week = models.IntegerField()
