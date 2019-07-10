@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CoursesBanner from "./CoursesBanner";
 import CoursesList from "./CoursesList";
 import Header from "../Header";
+import axios from "axios";
 
 
 class Courses extends Component{
@@ -9,38 +10,67 @@ class Courses extends Component{
         super(props);
         this.state = {
             searchValue: "",
-            name: "Машинное обучение",
-            description: "Обширный подраздел искусственного интеллекта, изучающий методы построения алгоритмов, способных обучаться",
-            img: "mlbanner.jpg",
+            name: "",
+            description: "",
+            img: "",
             courses: [
-                {
-                    img: "stanford-ml.jpg",
-                    organization: "Стэнфордский Университет",
-                    organizationImg: "stanford.jpg",
-                    level: "Начальный",
-                    name: "Машинное обучение",
-                    description: "Текст",
-                    url: "/fields/cs/ml/stanford-machine-learning",
-                    tags: ["машинное обучение", "глубокое обучение"],
-                    supportedLanguages: [
-                        "EN", "RU",
-                    ],
-                },
-                {
-                    img: "deeplearningai-ai4e.jpg",
-                    organization: "deeplearning.ai",
-                    organizationImg: "deeplearningai.jpg",
-                    level: "Начальный",
-                    name: "Глубокое обучение",
-                    description: "Текст",
-                    url: "/fields/cs/ml/deeplearningai-deeplearning",
-                    tags: ["машинное обучение", "глубокое обучение"],
-                    supportedLanguages: [
-                        "EN", "RU",
-                    ],
-                },
             ],
         };
+    }
+    componentDidMount = () => {
+        this.setState({
+            isLoading: true
+        });
+        axios.get(`http://67.205.173.77:8000/api/subfields?id=${this.props.match.params.subfield}`)
+        .then((resp) => {
+            this.setState({
+                name: this.props.locale === "EN" 
+                      ? resp.data[0].title 
+                      : resp.data[0]["title_"+this.props.locale.toLowerCase()] 
+                        ? resp.data[0]["title_"+this.props.locale.toLowerCase()]
+                        : resp.data[0].title,
+                description: this.props.locale === "EN" 
+                             ? resp.data[0].description 
+                             : resp.data[0]["description_"+this.props.locale.toLowerCase()] 
+                                ? resp.data[0]["description_"+this.props.locale.toLowerCase()]
+                                : resp.data[0].description,
+                img: resp.data[0].img_banner       
+            });
+            axios.get(`http://67.205.173.77:8000/api/courses?subfield=${this.props.match.params.subfield}`)
+            .then((resp) => {
+                this.setState({
+                    courses: resp.data.map((item) => {
+                        if(item.supported_languages.find((item) => item === this.props.locale && item !== "EN"))
+                            return {
+                                img: item.img_thumbnail,
+                                organization: item.organization_name,
+                                organizationImg: item.organization_img,
+                                organizationUrl: item.organization_url,
+                                level: item["level_"+this.props.locale.toLowerCase()],
+                                name: item["title_"+this.props.locale.toLowerCase()],
+                                description: item["description_"+this.props.locale.toLowerCase()],
+                                url: item.id,
+                                tags: item["tags_"+this.props.locale.toLowerCase()],
+                                supportedLanguages: item.supported_languages,       
+                            };
+                        else
+                            return {
+                                img: item.img_thumbnail,
+                                organization: item.organization_name,
+                                organizationImg: item.organization_img,
+                                organizationUrl: item.organization_url,
+                                level: item.level,
+                                name: item.title,
+                                description: item.description,
+                                url: item.id,
+                                tags: item.tags,
+                                supportedLanguages: item.supported_languages,       
+                            };
+                    }),
+                    isLoading: false,
+                });
+            });
+        });
     }
     changeSearchValue = (e) => {
         this.setState({
@@ -50,6 +80,7 @@ class Courses extends Component{
     render(){
         return (
             <div className="courses">
+                { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
                 <Header language={this.props.language} locale={this.props.locale}/>
                 <CoursesBanner 
                     locale={this.props.locale}

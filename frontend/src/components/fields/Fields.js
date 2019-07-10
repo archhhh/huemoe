@@ -52,7 +52,7 @@ class Fields extends Component{
         return (
             <div className="fields">
                 { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
-                <Header language={this.props.language} locale={this.props.locale}/>
+                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
                 <FieldsBanner language={this.props.language} locale={this.props.locale}/>
                 <FieldsList 
                     fields = {this.state.fields} 

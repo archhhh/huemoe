@@ -69,7 +69,7 @@ class SubFields extends Component{
         return (
             <div className="subfields">
                 { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
-                <Header language={this.props.language} locale={this.props.locale}/>
+                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
                 <SubFieldsBanner 
                     locale={this.props.locale} 
                     language={this.props.language} 

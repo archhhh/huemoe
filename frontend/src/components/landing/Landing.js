@@ -31,8 +31,10 @@ class Landing extends Component{
         this.state = {
             news: [
                 {
-                    header: "Мы запустились",
-                    description: "Ура",
+                    header: "We launched",
+                    header_ru: "Мы запустились",
+                    description: "haha",
+                    description_ru: "Ура",
                     date: "6/29/2019",
                     thumbnail: "volk.jpg",
                 },
@@ -42,7 +44,7 @@ class Landing extends Component{
     render(){
         return(
             <div className="landing">
-                <Header language={this.props.language} locale={this.props.locale}/>
+                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
                 <Banner language={this.props.language} locale={this.props.locale}/>
                 <NewsLanding news={this.state.news} language={this.props.language} locale={this.props.locale}/>
                 <AboutUsLanding language={this.props.language} locale={this.props.locale}/>

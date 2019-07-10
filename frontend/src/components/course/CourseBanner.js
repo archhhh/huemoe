@@ -4,10 +4,10 @@ import React from "react";
 const CourseBanner = (props) => {
     return (
         <div className="course-banner">
-            <img className="course-banner-img" src={require("../../assets/stanford-machine-learning.jpg")} />
+            <img className="course-banner-img" src={props.img} />
             <div className="course-banner-text">
                 <div className="course-organization">
-                    <img className="course-organization-img" src={require("../../assets/"+props.organizationImg)}></img>
+                    <img className="course-organization-img" src={props.organizationImg}></img>
                     <p className="course-organization-name">{props.organization}</p>
                 </div>
                 <h1 className="course-name">{props.name}</h1>

@@ -23,13 +23,13 @@ const CoursesList = (props) => {
             <ul>
                 { props.courses.map((course) => 
                 <li>
-                    <Link exact to={course.url}>
+                    <Link exact to={"/courses/"+course.url}>
                         <div className="courses-item-img">
-                            <img src={require("../../assets/"+course.img)}></img>
+                            <img src={course.img}></img>
                         </div>
                         <div className="courses-item-text">
                                 <div className="courses-profile">   
-                                    <img src={require("../../assets/" + course.organizationImg)} />
+                                    <img src={course.organizationImg} />
                                     <p>{course.organization}</p>
                                 </div>
                                 <div className="line"></div>
