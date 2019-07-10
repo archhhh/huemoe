@@ -68,4 +68,3 @@ class Content(models.Model):
 	order = models.IntegerField()
 	subtitle = models.FileField(upload_to='subtitles', null=True, blank=True)
 	supplementary_materials = models.FileField(upload_to='supplementary_materials', null=True, blank=True)
-	
