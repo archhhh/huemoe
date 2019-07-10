@@ -24,7 +24,7 @@ class CourseSerializer(serializers.ModelSerializer):
 			'id', 'subfield', 'title', 'title_ru', 'description',
 			'description_ru', 'img_banner', 'img_thumbnail', 'organization_name',
 			'organization_img', 'organization_url', 'instructor', 'instructor_url',
-			'level', 'level_ru', 'tags', 'tags_ru'
+			'level', 'level_ru', 'tags', 'tags_ru', 'supported_languages'
 		)
 
 
