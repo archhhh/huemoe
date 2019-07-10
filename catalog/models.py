@@ -49,7 +49,7 @@ class Course(models.Model):
 	level_ru = models.CharField(max_length=150)
 	tags = ArrayField(models.CharField(max_length=100), blank=True)
 	tags_ru = ArrayField(models.CharField(max_length=100), blank=True)
-	supported_languages = JSONField()
+	supported_languages = ArrayField(models.CharField(max_length=100), blank=True)
 
 	def __str__(self):
 		return '{}. {}'.format(self.id, self.title)
