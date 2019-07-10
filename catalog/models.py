@@ -58,6 +58,7 @@ class Content(models.Model):
 	course = models.ForeignKey(Course, related_name='contents', on_delete=models.CASCADE)
 	title = models.CharField(max_length=255)
 	title_ru = models.CharField(max_length=255)
+	content_type = models.CharField(max_length=255)
 	slug = models.SlugField(max_length=255, unique=True)
 	text = models.TextField(null=True, blank=True)
 	text_ru = models.TextField(null=True, blank=True)
@@ -67,4 +68,5 @@ class Content(models.Model):
 	week = models.IntegerField()
 	order = models.IntegerField()
 	subtitle = models.FileField(upload_to='subtitles', null=True, blank=True)
+	subtitle_ru = models.FileField(upload_to='subtitles', null=True, blank=True)
 	supplementary_materials = models.FileField(upload_to='supplementary_materials', null=True, blank=True)
