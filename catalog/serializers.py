@@ -35,5 +35,5 @@ class ContentSerializer(serializers.ModelSerializer):
 		fields = (
 			'id', 'course', 'title', 'title_ru', 'text', 'text_ru',
 			'video', 'added', 'updated', 'week', 'order', 'subtitle',
-			'supplementary_materials',
+			'supplementary_materials', 'content_type'
 		)
