@@ -44,7 +44,7 @@ class Course(models.Model):
 	organization_img = models.ImageField(upload_to='images/courses', blank=True, null=True)
 	organization_url = models.URLField()
 	instructor = models.CharField(max_length=150)
-	instructior_url = models.URLField()
+	instructor_url = models.URLField()
 	level = models.CharField(max_length=150)
 	level_ru = models.CharField(max_length=150)
 	tags = ArrayField(models.CharField(max_length=100), blank=True)
