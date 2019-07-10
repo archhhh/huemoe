@@ -51,7 +51,8 @@ export const russian = {
         week: "Неделя",
         level: "Уровень",
         instructor: "Инструктор",
-        supplementaryMaterials: "Дополнительные Материалы"
+        supplementaryMaterials: "Дополнительные Материалы",
+        download: "Скачать",
     },
     aboutUs: {
         text: "О нас ходят разные сплетни, но мы не такие"

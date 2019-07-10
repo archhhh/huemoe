@@ -17,9 +17,9 @@ const NewsLanding = (props) => {
                         <li className="news-landing-item">
                             <img src={"/static/frontend" + news.thumbnail}></img>
                             <div className="news-landing-text">
-                                <h2>{news.header}</h2>
+                                <h2>{ props.locale === "EN" ? news.header : news["header_"+props.locale.toLowerCase()]}</h2>
                                 <p className="news-date">{news.date}</p>
-                                <p>{news.description}</p>
+                                <p>{ props.locale === "EN" ? news.description : news["description_"+props.locale.toLowerCase()]}</p>
                             </div>
                         </li>                    
                     )) }

@@ -17,21 +17,28 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state={
-            locale: "RU",
+            locale: "EN",
         };
+    }
+    localeChange = (value) => {
+        this.setState(
+            {
+                locale: value
+            }
+        );
     }
     render(){
         return (
             <BrowserRouter>
                 <div className="App">
                     <Switch>
-                        <Route exact path="/" render={(props) => <Landing {...props} language={language} locale={this.state.locale} />}/>
-                        <Route exact path="/fields" render={(props) => <Fields {...props} language={language} locale={this.state.locale} />} />
-                        <Route exact path="/fields/:field" render={(props) => <SubFields {...props} language={language} locale={this.state.locale} />} />
-                        <Route exact path="/fields/:field/:subfield" render={(props) => <Courses {...props} language={language} locale={this.state.locale} />} />
-                        <Route exact path="/fields/:field/:subfield/:course" render={(props) => <Course {...props} language={language} locale={this.state.locale} />} />
-                        <Route exact path="/about-us" render={(props) => <AboutUs {...props} language={language} locale={this.state.locale} />} />
-                        <Route render={(props) => <Error {...props} language={language} locale={this.state.locale} />} />
+                        <Route exact path="/" render={(props) => <Landing {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>}/>
+                        <Route exact path="/fields" render={(props) => <Fields {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />
+                        <Route exact path="/fields/:field" render={(props) => <SubFields {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />
+                        <Route exact path="/subfields/:subfield" render={(props) => <Courses {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />
+                        <Route exact path="/courses/:course" render={(props) => <Course {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />
+                        <Route exact path="/about-us" render={(props) => <AboutUs {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />
+                        <Route render={(props) => <Error {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />
                     </Switch>
                     <ContactUsLanding language={language} locale={this.state.locale}/>
                     <Footer language={language} locale={this.state.locale}/>

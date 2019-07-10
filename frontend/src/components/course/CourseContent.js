@@ -2,13 +2,14 @@ import React, {Component} from "react";
 import videojs from "video.js";
 
 
+
 class CourseContent extends Component{
     componentDidUpdate(){
         if(this.props.content.type === "video")
         {
             if(this.player)
             {
-                let videoSrc = require("../../assets/videos/"+this.props.content.url);
+                let videoSrc = this.props.content.url;
                 this.player.src({
                     src: videoSrc
                 });
@@ -17,7 +18,7 @@ class CourseContent extends Component{
                 while (i--) {
                     this.player.removeRemoteTextTrack(oldTracks[i]);
                 }
-                let captionsSrc = require("../../assets/videos/"+this.props.content.subtitles.url)
+                let captionsSrc = this.props.content.subtitles.url;
                 this.player.addRemoteTextTrack({
                     kind: 'captions',
                     src: captionsSrc,
@@ -52,9 +53,11 @@ class CourseContent extends Component{
                         {this.props.language[this.props.courseLocale].course.supplementaryMaterials}
                     </h2>
                     <ul className="course-content-supplementary-materials">
-                        {this.props.content.supplementaryMaterials.map( (material) => 
-                            <li><a className="course-content-supplementary-material" href={material.url}>{material.name}</a></li>
-                        )}
+                        <li>
+                            <a className="course-content-supplementary-material" href={this.props.content.supplementaryMaterials}>
+                            {this.props.language[this.props.courseLocale].course.download}
+                            </a>
+                        </li>
                     </ul>
                 </div>            
                 {this.props.content.type === "video" 
@@ -64,8 +67,8 @@ class CourseContent extends Component{
                             {this.props.content.name}
                         </h1>
                         <video-js id="my-player" class="vjs-matrix video-js vjs-big-play-centered" controls data-setup='{}'>
-                                <source src={require("../../assets/videos/"+this.props.content.url)} type="video/mp4" />
-                                <track kind='captions' src={require("../../assets/videos/"+this.props.content.subtitles.url)} srcLang={this.props.content.subtitles.lang} label={this.props.content.subtitles.label} />
+                                <source src={this.props.content.url} type="video/mp4" />
+                                <track kind='captions' src={this.props.content.subtitles.url} srcLang={this.props.content.subtitles.lang} label={this.props.content.subtitles.label} />
                         </video-js>
                     </div> 
                 )

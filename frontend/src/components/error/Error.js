@@ -1,12 +1,11 @@
 import React from "react";
 import Header from "../Header";
-import Banner from "../landing/Banner";
 
 
 const Error = (props) => {
     return(
         <div className="error">
-            <Header language={props.language} locale={props.locale}/>
+            <Header language={props.language} locale={props.locale} localeChange={this.props.localeChange}/>
             <div className="error-content">
                 <p>{props.language[props.locale].error.text}</p>
             </div>

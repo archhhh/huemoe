@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 
-
-
 class Navbar extends Component {
     constructor(props){
         super(props);
@@ -62,6 +60,9 @@ class Navbar extends Component {
                 <h1 className="logo">
                     <Link to="/">HAHAYES</Link>
                 </h1>
+                <div className="language">
+                    
+                </div>
                 <button type="button" className="navbar-toggle" onClick={this.toggleButton}>
                         <span className="navbar-toggle-bar"></span>
                         <span className="navbar-toggle-bar"></span>

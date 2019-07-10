@@ -13,7 +13,6 @@ const Banner = (props) => {
                     <Link exact to="/fields" className="banner-button-why">{props.language[props.locale].landingPage.bannerLeftButton}</Link>
                     <Link exact to="/about-us" className="banner-button-browse" >{props.language[props.locale].landingPage.bannerRightButton}</Link>
                 </div>
-
             </div>
         </div>
     );
