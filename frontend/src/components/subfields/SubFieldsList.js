@@ -15,8 +15,8 @@ const SubFieldsList = (props) => {
                             <div>
                                 <img src={subfield.img}></img>
                             </div>
-                            <h2>{subfield.name}</h2>
-                            <p>{subfield.description}</p>
+                            <h2>{subfield.name[props.locale]}</h2>
+                            <p>{subfield.description[props.locale]}</p>
                         </Link>
                     </li>                
                 )}

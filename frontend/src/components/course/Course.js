@@ -11,83 +11,51 @@ class Course extends Component{
     constructor(props){
         super(props);
         this.state = {
-            name: "Машинное Обучение",
-            organization: "Cтэнфордский Университет",
-            organizationImg: "stanford.jpg",
+            name: { },
+            organization: "",
+            organizationImg: "",
             organizationUrl: "#",
-            instructor: "Эндрю Энг",
+            instructor: "",
             instructorUrl: "#",
-            level: "Начальный",
+            level: {},
             tags: [
-                "машинное обучение",
-                "глубокое обучение"
             ],
             img: "",
             content: [
                 [
                     {
-                        name: "Вступление в курс",
-                        type: "text",
-                        data: "<h1>Вступление в курс</h1><p>Добро пожаловать на курс Машинного Обучения</p>",     
-                        supplementaryMaterials: [
-                            {
-                                url: "#",
-                                name: "слайды",
-                            },
-                            {
-                                url: "#",
-                                name: "конспекты",
-                            }
-                        ],
-                    },
-                    {
-                        name: "Вступление в Машинное Обучение",
-                        type: "video",
-                        url: "2.mp4",
-                        subtitles: {
-                            label: "English",
-                            lang: "en",
-                            url: "2eng.vtt",
+                        name: {
+                            RU: "",
+                            EN: "",
                         },
-                        supplementaryMaterials: [
-                            {
-                                url: "#",
-                                name: "слайды",
-                            },
-                            {
-                                url: "#",
-                                name: "конспекты",
-                            }
-                        ],
-                    },
-                    {
-                        name: "Вступление в Машинное Обучение",
-                        type: "video",
-                        url: "2.mp4",
+                        type: "",
+                        url: "",
+                        data: {
+                            RU: "",
+                            EN: "",
+                        },    
                         subtitles: {
-                            label: "English",
-                            lang: "en",
-                            url: "2eng.vtt",
-                        },
-                        supplementaryMaterials: [
-                            {
-                                url: "#",
-                                name: "слайды",
+                            RU: {
+                                label: "Русский",
+                                lang: "ru",
+                                url: "",
                             },
-                            {
-                                url: "#",
-                                name: "конспекты",
-                            }
-                        ],
-                    },
-                    
+                            EN:  {
+                                label: "English",
+                                lang: "en",
+                                url: "",
+                            },
+                        },
+                        supplementaryMaterials: "",
+                    }
                 ],
+                
             ],
             active: {
                 x: 0,
                 y: 0,
             },
-            courseLocale: "EN",
+            courseLocale: this.props.locale,
         };
     }
     componentDidMount = () => {
@@ -96,63 +64,61 @@ class Course extends Component{
         });
         axios.get(`http://67.205.173.77:8000/api/courses?id=${this.props.match.params.course}`)
         .then((resp) => {
-            if(resp.data[0].supported_languages.find((item) => item === this.state.courseLocale && item !== "EN"))
+            this.setState({
+                img: resp.data[0].img_banner,
+                organization: resp.data[0].organization_name,
+                organizationImg: resp.data[0].organization_img,
+                organizationUrl: resp.data[0].organization_url,
+                instructor: resp.data[0].instructor,
+                instructorUrl: resp.data[0].instructor_url,
+                level: {
+                    RU: resp.data[0].level_ru,
+                    EN: resp.data[0].level,
+                },
+                name:  {
+                    RU: resp.data[0].title_ru,
+                    EN: resp.data[0].title,
+                },
+                tags:  {
+                    RU: resp.data[0].tags_ru,
+                    EN: resp.data[0].tags,
+                }
+            });
+            if(resp.data[0].supported_languages.find((item) => item === this.state.courseLocale) == undefined)
                 this.setState({
-                    img: resp.data[0].img_banner,
-                    organization: resp.data[0].organization_name,
-                    organizationImg: resp.data[0].organization_img,
-                    organizationUrl: resp.data[0].organization_url,
-                    instructor: resp.data[0].instructor,
-                    instructorUrl: resp.data[0].instructor_url,
-                    level: resp.data[0]["level_"+this.state.courseLocale.toLowerCase()],
-                    name: resp.data[0]["title_"+this.state.courseLocale.toLowerCase()],
-                    tags: item["tags_"+this.state.courseLocale.toLowerCase()], 
-                });
-            else
-                this.setState({
-                    img: resp.data[0].img_banner,
-                    organization: resp.data[0].organization_name,
-                    organizationImg: resp.data[0].organization_img,
-                    organizationUrl: resp.data[0].organization_url,
-                    instructor: resp.data[0].instructor,
-                    instructorUrl: resp.data[0].instructor_url,
-                    level: resp.data[0].level,
-                    name: resp.data[0].title,
-                    tags: resp.data[0].tags,
                     courseLocale: "EN", 
                 });
             axios.get(`http://67.205.173.77:8000/api/contents?course=${this.props.match.params.course}`)
             .then((resp) => {
-                console.log(resp);
                 let content = [];
                 resp.data.map((item) => {
                     if(!content[item.week-1])
                         content[item.week-1] = new Array();
-                    content[item.week-1][item.order-1] = this.state.courseLocale === "EN" 
-                                                          ? {
-                                                            name: item.title,
+                    content[item.week-1][item.order-1] = {
+                                                            name: {
+                                                                RU: item.title_ru,
+                                                                EN: item.title
+                                                            },
                                                             type: item.content_type,
                                                             url: item.video,
-                                                            data: item.text,    
+                                                            data: {
+                                                                RU: item.data_ru,
+                                                                EN: item.data,
+                                                            },    
                                                             subtitles: {
-                                                                label: "English",
-                                                                lang: "en",
-                                                                url: item.subtitle,
+                                                                RU: {
+                                                                    label: "Русский",
+                                                                    lang: "ru",
+                                                                    url: item.subtitle_ru,
+                                                                },
+                                                                EN:  {
+                                                                    label: "English",
+                                                                    lang: "en",
+                                                                    url: item.subtitle,
+                                                                },
                                                             },
                                                             supplementaryMaterials: item.supplementary_materials,
-                                                          }
-                                                          : {
-                                                            name: item["title_"+this.state.courseLocale.toLowerCase()],
-                                                            type: item.content_type,
-                                                            url: item.video,
-                                                            data: item["text_"+this.state.courseLocale.toLowerCase()],    
-                                                            subtitles: {
-                                                                label: LABELS[this.state.courseLocale],
-                                                                lang: this.state.courseLocale.toLowerCase(),
-                                                                url: item.subtitle["subtitle_"+this.state.courseLocale.toLowerCase()],
-                                                            },
-                                                            supplementaryMaterials: item.supplementary_materials,
-                                                          };
+                                                        };
                 });
                 this.setState({
                     content: content,
@@ -170,7 +136,7 @@ class Course extends Component{
         return (
             <div className="course">
                 { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
-                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
+                {/*<Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/> */}
                 <CourseBanner 
                     name = {this.state.name}
                     organization = {this.state.organization}
@@ -192,7 +158,7 @@ class Course extends Component{
                     language = {this.props.language}
                 /> 
                 <CourseContent 
-                    content={this.state.content[this.state.active.x][this.state.active.y]}
+                    content={ this.state.content[this.state.active.x][this.state.active.y]}
                     language = {this.props.language}
                     courseLocale = {this.state.courseLocale}
                 />

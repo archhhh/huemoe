@@ -31,7 +31,7 @@ class CourseNav extends Component{
             <div className="course-nav">
                 <div className="course-nav-menu">
                     <p className={this.state.open ? "course-nav-menu-active-title open":"course-nav-menu-active-title"} onClick={this.toggleMenu}>
-                        {this.props.language[this.props.courseLocale].course.week} {this.props.active.x+1}: {this.props.content[this.props.active.x][this.props.active.y].name}
+                        {this.props.language[this.props.courseLocale].course.week} {this.props.active.x+1}: {this.props.content[this.props.active.x][this.props.active.y].name[this.props.courseLocale]}
                     </p>
                     <ul className={this.state.open ? "course-nav-menu-weeks open": "course-nav-menu-weeks"}>
                         {this.props.content.map((weeklyContent, i) => 
@@ -48,8 +48,8 @@ class CourseNav extends Component{
                                 >
                                     {weeklyContent.map((dailyContent, j) => 
                                         i === this.props.active.x && j == this.props.active.y
-                                        ? <li className="course-nav-menu-dropdown-day-item active" x={i} y={j}>{dailyContent.name}</li> 
-                                        : <li className="course-nav-menu-dropdown-day-item" x={i} y={j}>{dailyContent.name}</li>
+                                        ? <li className="course-nav-menu-dropdown-day-item active" x={i} y={j}>{dailyContent.name[this.props.courseLocale]}</li> 
+                                        : <li className="course-nav-menu-dropdown-day-item" x={i} y={j}>{dailyContent.name[this.props.courseLocale]}</li>
                                     )}
                                 </ul>
                             </li>    

@@ -10,14 +10,14 @@ import ContactUsLanding from "./landing/ContactUsLanding";
 import AboutUs from "./aboutUs/AboutUs";
 import {language} from "../utils/language";
 import Error from "./error/Error";
-import LOCALES from "../utils/locales";
+import Header from "./Header";
 
 
 class App extends Component{
     constructor(props){
         super(props);
         this.state={
-            locale: "EN",
+            locale: "RU",
         };
     }
     localeChange = (value) => {
@@ -31,6 +31,7 @@ class App extends Component{
         return (
             <BrowserRouter>
                 <div className="App">
+                    <Header language={language} locale={this.state.locale} localeChange={this.localeChange}/>
                     <Switch>
                         <Route exact path="/" render={(props) => <Landing {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>}/>
                         <Route exact path="/fields" render={(props) => <Fields {...props} language={language} locale={this.state.locale} localeChange={this.localeChange}/>} />

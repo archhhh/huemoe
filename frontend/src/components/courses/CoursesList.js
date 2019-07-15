@@ -34,13 +34,13 @@ const CoursesList = (props) => {
                                 </div>
                                 <div className="line"></div>
                                 <div className="courses-info">
-                                    <h2>{course.name}</h2>
-                                    <p className="courses-level">{props.language[props.locale].courses.level}: {course.level}</p>
+                                    <h2>{course.supportedLanguages.find((e) => e == props.locale) ? course.name[props.locale] : course.name.EN}</h2>
+                                    <p className="courses-level">{props.language[props.locale].courses.level}: {course.supportedLanguages.find((e) => e == props.locale) ? course.level[props.locale] : course.level.EN}</p>
                                     <p className="courses-tags">
-                                            {course.tags.map( (tag) => <span>{tag}</span>)}
+                                            {course.supportedLanguages.find((e) => e == props.locale) ? course.tags[props.locale].map( (tag) => <span>{tag}</span>) : course.tags.EN.map( (tag) => <span>{tag}</span>)}
                                     </p>
                                     <p className="courses-languages">{props.language[props.locale].courses.supportedLanguages}: {course.supportedLanguages.map( (language, index) => index === course.supportedLanguages.length-1 ? language : `${language}, ` )}</p>
-                                    <p className="courses-description">{course.description}</p>
+                                    <p className="courses-description">{ course.supportedLanguages.find((e) => e == props.locale) ? course.description[props.locale] : course.description.EN}</p>
                                 </div>
                         </div>
                     </Link>

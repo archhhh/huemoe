@@ -28,8 +28,7 @@ import Header from "../Header";
 class Landing extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            news: [
+        this.news = [
                 {
                     header: "We launched",
                     header_ru: "Мы запустились",
@@ -38,15 +37,15 @@ class Landing extends Component{
                     date: "6/29/2019",
                     thumbnail: "volk.jpg",
                 },
-            ],
-        };
+            ];
+    
     }
     render(){
         return(
             <div className="landing">
-                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
+                {/*<Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/> */}
                 <Banner language={this.props.language} locale={this.props.locale}/>
-                <NewsLanding news={this.state.news} language={this.props.language} locale={this.props.locale}/>
+                <NewsLanding news={this.news} language={this.props.language} locale={this.props.locale}/>
                 <AboutUsLanding language={this.props.language} locale={this.props.locale}/>
             </div>
         );

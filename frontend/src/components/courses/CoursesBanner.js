@@ -6,8 +6,8 @@ const CoursesBanner = (props) => {
         <div className="courses-banner">
             <img src={props.img} />
             <div className="courses-banner-text">
-                <h1>{props.name}</h1>
-                <p>{props.description}</p>
+                <h1>{props.name[props.locale]}</h1>
+                <p>{props.description[props.locale]}</p>
             </div>
         </div>
     );

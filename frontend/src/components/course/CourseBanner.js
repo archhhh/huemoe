@@ -10,8 +10,8 @@ const CourseBanner = (props) => {
                     <img className="course-organization-img" src={props.organizationImg}></img>
                     <p className="course-organization-name">{props.organization}</p>
                 </div>
-                <h1 className="course-name">{props.name}</h1>
-                <p className="course-level">{props.language[props.courseLocale].course.level}: {props.level}</p>
+                <h1 className="course-name">{props.name[props.courseLocale]}</h1>
+                <p className="course-level">{props.language[props.courseLocale].course.level}: {props.level[props.courseLocale]}</p>
                 <p className="course-instructor">{props.language[props.courseLocale].course.instructor}: {props.instructor}</p>
             </div>
         </div>

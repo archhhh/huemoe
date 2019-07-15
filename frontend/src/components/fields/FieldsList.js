@@ -16,9 +16,9 @@ const FieldsList = (props) => {
                                 <img src={field.img}></img>
                             </div>
                             <div className="fields-item-text">
-                                    <h2>{field.name}</h2>
+                                    <h2>{field.name[props.locale]}</h2>
                                     <div className="line"></div>
-                                    <p>{field.description}</p>
+                                    <p>{field.description[props.locale]}</p>
                             </div>
                         </Link>
                     </li>                    

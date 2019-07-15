@@ -18,12 +18,12 @@ class CourseContent extends Component{
                 while (i--) {
                     this.player.removeRemoteTextTrack(oldTracks[i]);
                 }
-                let captionsSrc = this.props.content.subtitles.url;
+                let captionsSrc = this.props.content.subtitles[this.props.courseLocale].url;
                 this.player.addRemoteTextTrack({
                     kind: 'captions',
                     src: captionsSrc,
-                    srcLang: this.props.content.subtitles.lang,
-                    label: this.props.content.subtitles.label,
+                    srcLang: this.props.content.subtitles[this.props.courseLocale].lang,
+                    label: this.props.content.subtitles[this.props.courseLocale].label,
                     align: 'center',
                 });
             }
@@ -64,15 +64,15 @@ class CourseContent extends Component{
                 ? (
                     <div className="course-content-video">
                         <h1 className="course-content-video-title">
-                            {this.props.content.name}
+                            {this.props.content.name[this.props.courseLocale]}
                         </h1>
                         <video-js id="my-player" class="vjs-matrix video-js vjs-big-play-centered" controls data-setup='{}'>
                                 <source src={this.props.content.url} type="video/mp4" />
-                                <track kind='captions' src={this.props.content.subtitles.url} srcLang={this.props.content.subtitles.lang} label={this.props.content.subtitles.label} />
+                                <track kind='captions' src={this.props.content.subtitles[this.props.courseLocale].url} srcLang={this.props.content.subtitles[this.props.courseLocale].lang} label={this.props.content.subtitles[this.props.courseLocale].label} />
                         </video-js>
                     </div> 
                 )
-                : <div className="course-content-text" dangerouslySetInnerHTML={{__html: this.props.content.data}}></div>}
+                : <div className="course-content-text" dangerouslySetInnerHTML={{__html: this.props.content.data[this.props.courseLocale]}}></div>}
                 
             </div>
         );

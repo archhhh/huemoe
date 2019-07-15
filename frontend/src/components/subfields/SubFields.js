@@ -24,16 +24,14 @@ class SubFields extends Component{
         axios.get(`http://67.205.173.77:8000/api/fields?id=${this.props.match.params.field}`)
         .then((resp) => {
             this.setState({
-                name: this.props.locale === "EN" 
-                      ? resp.data[0].title 
-                      : resp.data[0]["title_"+this.props.locale.toLowerCase()] 
-                        ? resp.data[0]["title_"+this.props.locale.toLowerCase()]
-                        : resp.data[0].title,
-                description: this.props.locale === "EN" 
-                             ? resp.data[0].description 
-                             : resp.data[0]["description_"+this.props.locale.toLowerCase()] 
-                                ? resp.data[0]["description_"+this.props.locale.toLowerCase()]
-                                : resp.data[0].description,
+                name: {
+                    RU: resp.data[0].title_ru,
+                    EN: resp.data[0].title,
+                },
+                description: {
+                    RU: resp.data[0].description_ru,
+                    EN: resp.data[0].description,
+                },
                 img: resp.data[0].img_banner       
             });
             axios.get(`http://67.205.173.77:8000/api/subfields?field=${this.props.match.params.field}`)
@@ -42,16 +40,14 @@ class SubFields extends Component{
                     subfields: resp.data.map((item) => {
                         return {
                             img: item.img_thumbnail,
-                            name: this.props.locale === "EN" 
-                                  ? item.title 
-                                  : item["title_"+this.props.locale.toLowerCase()] 
-                                    ? item["title_"+this.props.locale.toLowerCase()]
-                                    : item.title,
-                            description: this.props.locale === "EN" 
-                                         ? item.description 
-                                         : item["description_"+this.props.locale.toLowerCase()] 
-                                           ? item["description_"+this.props.locale.toLowerCase()]
-                                           : item.description,
+                            name: {
+                                RU: item.title_ru,
+                                EN: item.title,
+                            },
+                            description: {
+                                RU: item.description_ru,
+                                EN: item.description,
+                            },
                             url: item.id          
                         };
                     }),
@@ -69,7 +65,8 @@ class SubFields extends Component{
         return (
             <div className="subfields">
                 { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
-                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
+                {/*<Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/> */}
+                
                 <SubFieldsBanner 
                     locale={this.props.locale} 
                     language={this.props.language} 

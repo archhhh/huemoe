@@ -27,16 +27,14 @@ class Fields extends Component{
                 fields: resp.data.map((item) => {
                     return {
                         img: item.img_thumbnail,
-                        name: this.props.locale === "EN" 
-                              ? item.title 
-                              : item["title_"+this.props.locale.toLowerCase()] 
-                                ? item["title_"+this.props.locale.toLowerCase()]
-                                : item.title,
-                        description: this.props.locale === "EN" 
-                                     ? item.description 
-                                     : item["description_"+this.props.locale.toLowerCase()] 
-                                       ? item["description_"+this.props.locale.toLowerCase()]
-                                       : item.description,
+                        name: {
+                            RU: item.title_ru,
+                            EN: item.title
+                        },
+                        description: {
+                            RU: item.description_ru,
+                            EN: item.description
+                        },
                         url: item.id                 
                     };
                 })
@@ -52,7 +50,8 @@ class Fields extends Component{
         return (
             <div className="fields">
                 { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
-                <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>
+                {/* <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>*/}
+                
                 <FieldsBanner language={this.props.language} locale={this.props.locale}/>
                 <FieldsList 
                     fields = {this.state.fields} 
