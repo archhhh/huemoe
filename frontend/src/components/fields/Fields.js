@@ -39,6 +39,9 @@ class Fields extends Component{
                     };
                 })
             });
+        }).catch((error) => {
+            alert(`Something went wrong. ${error}`);
+            this.setState({ isLoading: false });
         });
     }
     changeSearchValue = (e) => {
@@ -51,7 +54,6 @@ class Fields extends Component{
             <div className="fields">
                 { this.state.isLoading && <div className="loading"><div className="spin"></div></div> }
                 {/* <Header language={this.props.language} locale={this.props.locale} localeChange={this.props.localeChange}/>*/}
-                
                 <FieldsBanner language={this.props.language} locale={this.props.locale}/>
                 <FieldsList 
                     fields = {this.state.fields} 

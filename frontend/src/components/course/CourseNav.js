@@ -7,11 +7,20 @@ class CourseNav extends Component{
         this.state = {
             open: false,
             openWeeks: new Array(this.props.content.length).fill(false),
+            language: false,
         };
+    }
+    componentDidUpdate = (prevProps) => {
+        if(prevProps.content.length != this.props.content.length){
+            this.setState({
+                openWeeks: new Array(this.props.content.length).fill(false),
+            });
+        }
     }
     toggleMenu = () => {
         this.setState({
             open: !this.state.open,
+            language: false,
         });
     }
     toggleWeek = (i) => {
@@ -21,12 +30,25 @@ class CourseNav extends Component{
             ),
         });
     }
+    toggleLanguage = (toggle) => {
+        this.setState({
+            language: toggle,
+            open: false,
+        });
+    }
     pickActive = ( active ) => {
         this.props.pickActive(active);
         this.toggleMenu();
         this.toggleWeek( active.x );
     };
     render(){
+        let languages = [];
+        this.props.supportedLanguages.map((item) => {
+            if(item !== this.props.courseLocale)
+                languages.push(
+                    <li key={item} className="language-dropdown-link" onClick={() => this.props.courseLocaleChange(item)}>{item}</li>
+                );
+        });
         return (
             <div className="course-nav">
                 <div className="course-nav-menu">
@@ -55,6 +77,15 @@ class CourseNav extends Component{
                             </li>    
                         )}
                     </ul>
+                </div>
+                <div className="course-language">
+                    <p onClick={() => {this.toggleLanguage(!this.state.language)}}>{this.props.courseLocale}</p>
+                    { languages.length !== 0 && (
+                        <ul onClick={() => {this.toggleLanguage(false)}} className={this.state.language ? "language-dropdown-open" : "language-dropdown-closed"}>
+                            {languages}
+                        </ul>
+                    )}
+                    
                 </div>
             </div>
         );

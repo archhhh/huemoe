@@ -46,9 +46,12 @@ class Navbar extends Component {
                     };
                 })
             });
+        }).catch((error) => {
+            alert(`Something went wrong. ${error}`);
+            this.setState({ isLoading: false });
         });
     }
-    componentDidUpdate = (prevProps, prevState) => {
+    componentDidUpdate = (prevProps) => {
         if(prevProps.locale != this.props.locale){
             this.setState({
                 links: [

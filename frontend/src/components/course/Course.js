@@ -21,6 +21,7 @@ class Course extends Component{
             tags: [
             ],
             img: "",
+            supportedLanguages: [],
             content: [
                 [
                     {
@@ -58,6 +59,7 @@ class Course extends Component{
             courseLocale: this.props.locale,
         };
     }
+    //${this.props.match.params.course}
     componentDidMount = () => {
         this.setState({
             isLoading: true
@@ -82,7 +84,8 @@ class Course extends Component{
                 tags:  {
                     RU: resp.data[0].tags_ru,
                     EN: resp.data[0].tags,
-                }
+                },
+                supportedLanguages: resp.data[0].supported_languages,
             });
             if(resp.data[0].supported_languages.find((item) => item === this.state.courseLocale) == undefined)
                 this.setState({
@@ -102,8 +105,8 @@ class Course extends Component{
                                                             type: item.content_type,
                                                             url: item.video,
                                                             data: {
-                                                                RU: item.data_ru,
-                                                                EN: item.data,
+                                                                RU: item.text_ru,
+                                                                EN: item.text,
                                                             },    
                                                             subtitles: {
                                                                 RU: {
@@ -124,12 +127,27 @@ class Course extends Component{
                     content: content,
                     isLoading: false,
                 });
+            }).catch((error) => {
+                alert(`Something went wrong. ${error}`);
+                this.setState({
+                    isLoading: false
+                });
+            });
+        }).catch((error) => {
+            alert(`Something went wrong. ${error}`);
+            this.setState({
+                isLoading: false
             });
         });
     }
     pickActive = ( active ) => {
         this.setState({
             active: active,
+        });
+    }
+    courseLocaleChange = (courseLocale) => {
+        this.setState({
+            courseLocale: courseLocale,
         });
     }
     render(){
@@ -156,6 +174,8 @@ class Course extends Component{
                     pickActive={this.pickActive}
                     courseLocale = {this.state.courseLocale}
                     language = {this.props.language}
+                    courseLocaleChange = {this.courseLocaleChange}
+                    supportedLanguages = {this.state.supportedLanguages}
                 /> 
                 <CourseContent 
                     content={ this.state.content[this.state.active.x][this.state.active.y]}

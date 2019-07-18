@@ -294,6 +294,7 @@
     font-family: "Montserrat", sans-serif;
     padding: 0;
     margin: 0;
+    word-break:break-word !important; 
 }
 .vjs-text-track-display{
     div:first-child{
@@ -335,6 +336,9 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+.video-js .vjs-time-tooltip{
+    word-break: normal !important;
+}
 header{
     position: relative;
     z-index:1;
@@ -366,7 +370,7 @@ header{
         padding-top:7px;
         margin-left: 30px;
         p{
-            background: url(/triangle-180.png) no-repeat;
+            background: url(../assets/triangle-180.png) no-repeat;
             background-position: right;
             padding-right: 25px;
         }
@@ -375,6 +379,7 @@ header{
             position:absolute;
             li{
                 padding: 10px 20px 10px 20px;
+                word-break: normal !important;
             }
             color: #000000;
             background-color: #ffffff;
@@ -825,7 +830,7 @@ header{
                     overflow:hidden;
                     background-color: #000000;
                     img{
-                        opacity:0.5;
+                        opacity:0.7;
                     }
                     margin-right:20px;
                 }
@@ -840,7 +845,8 @@ header{
                         line-height: 1.4;
                         margin-bottom: 10px;
                         text-transform: uppercase;
-                        word-wrap: wrap;
+                        word-wrap: break-word;
+                        padding-right:20px;
                     }
                     p{
                         font-size: 16px;
@@ -1112,7 +1118,7 @@ header{
                     }
                     .courses-info{
                         margin-top:15px;
-                        height:300px;
+                        height:400px;
                         h2{
                             font-size: 22px;
                             font-weight: 400;
@@ -1187,6 +1193,13 @@ header{
                     margin-top:10px;
                     font-size:16px;
                     text-transform: none;
+                    a{
+                        text-decoration: none;
+                        color: #ffffff;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
                 }
                 &:after{
                     display: block;
@@ -1198,6 +1211,13 @@ header{
             .course-instructor{
                 clear:both;
                 display:inline-block;
+                a{
+                    text-decoration: none;
+                    color: #ffffff;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
             width:80%;
             margin-left:10%;
@@ -1211,10 +1231,52 @@ header{
     .course-nav{
         background-color: #e0e0e0;
         padding: 20px 0;
+        .course-language{
+            display:inline-block;
+            vertical-align: top;
+            font-size: 18px;
+            margin-left: 30px;
+            position: relative;
+            text-transform: uppercase;
+            p{
+                background-color: #ffffff;
+                color: #000000;
+                cursor: pointer;
+                padding:10px 0;
+                text-align: center;
+                padding: 10px 20px 10px 20px;
+            }
+            .language-dropdown-open{
+                list-style-type: none;
+                li{
+                    padding: 10px 20px 10px 20px;
+                    word-break: normal !important;
+                    &:hover{
+                        background-color: #f5f5f5;
+                        cursor:pointer;
+                    }
+                }
+                color: #000000;
+                background-color: #ffffff;
+                font-weight: normal;
+                right: 0;
+
+                height: auto;
+                margin-top:15px;
+                position:absolute;
+                border:1px solid black;
+            }
+            .language-dropdown-closed{
+                height: 0;
+                overflow:hidden;
+            }
+        }
         .course-nav-menu{
             position:relative;
             margin-left:10%;
             width:450px;
+            display:inline-block;
+            vertical-align: top;
             .course-nav-menu-active-title{
                 padding:10px 0;
                 padding-left:30px;
@@ -1276,7 +1338,9 @@ header{
                 }
             }
             .course-nav-menu-weeks.open{
-                max-height:1000px;
+                max-height:150px;
+                overflow: scroll;
+                overflow-x:hidden;
                 border:1px solid #9e9e9e;
                 transition: all 1s ease;
                 
@@ -1315,15 +1379,16 @@ header{
             h1{
                 font-size:30px;
                 font-weight:normal;
-                margin-bottom:10px;
+                margin-bottom:20px;
             }
         }
         .course-content-text{
             float:left;
+            width: 70%;
             h1{
                 font-size:30px;
                 font-weight:normal;
-                margin-bottom:10px;
+                margin-bottom:20px;
             }
             p{
                 font-size:20px;
@@ -1363,6 +1428,51 @@ header{
 .video-js .vjs-control-bar{
     display:flex;
 }
+@media screen and (max-width: 1350px){
+    
+    .courses .courses-list .courses-filters{
+        width: 790px;
+    }
+    .courses .courses-list ul li{
+        margin-right:50px;
+        &:nth-child(2n){
+            margin-right: 0;
+        }
+    }
+    .courses .courses-list ul{
+        width: 790px;
+    }
+    .courses .courses-list .courses-filters .courses-select{
+        margin-bottom:20px;
+    }
+    .fields .fields-list .fields-filters{
+        width: 800px;
+    }
+    .fields .fields-list ul{
+        width: 800px;
+    }
+    .fields .fields-list ul li{
+        width:800px;
+    }
+    .fields .fields-list ul li .fields-item-text{
+        width: 580px;
+    }
+    .fields .fields-list ul li:nth-child(odd){
+        margin-right: 0;
+    }
+    .subfields .subfields-list .subfields-filters{
+        width: 800px;
+    }
+    .subfields .subfields-list ul{
+        width: 800px;
+        li{
+            margin-right: 0;
+        }
+    }
+    .subfields .subfields-list ul li:nth-child(2n+1){
+        margin-right:100px;
+    }
+}
 @media screen and (max-width: 1270px){
     .news-landing .news-landing-list .news-landing-item{
         width:90%;
@@ -1389,50 +1499,11 @@ header{
         text-align:center;
         margin-bottom:100px;
     }
-    .fields .fields-list .fields-filters{
-        width: 800px;
-    }
-    .fields .fields-list ul{
-        width: 800px;
-    }
-    .fields .fields-list ul li{
-        width:800px;
-    }
-    .fields .fields-list ul li .fields-item-text{
-        width: 580px;
-    }
-    .fields .fields-list ul li:nth-child(odd){
-        margin-right: 0;
-    }
-    .subfields .subfields-list .subfields-filters{
-        width: 750px;
-    }
-    .subfields .subfields-list ul{
-        width: 750px;
-        li{
-            margin-right: 0;
-        }
-    }
-    .subfields .subfields-list ul li:nth-child(2n+1){
-        margin-right:50px;
-    }
-    .courses .courses-list .courses-filters{
-        width: 790px;
-    }
-    .courses .courses-list ul li{
-        margin-right:50px;
-        &:nth-child(2n){
-            margin-right: 0;
-        }
-    }
-    .courses .courses-list ul{
-        width: 790px;
-    }
-    .courses .courses-list .courses-filters .courses-select{
-        margin-bottom:20px;
-    }
+    
+
     .course .course-content .course-content-text{
         float:none;
+        width:100%;
     }
     .course .course-content .course-content-video{
         float:none;
@@ -1453,6 +1524,13 @@ header{
 }
 
 @media screen and (max-width: 1050px){
+    
+    .subfields .subfields-banner .subfields-banner-text h1,  .courses .courses-banner .courses-banner-text h1{
+        font-size:45px;
+    }
+    .subfields .subfields-banner .subfields-banner-text p, .courses .courses-banner .courses-banner-text p{
+        font-size:22px;
+    }
     .contact-us-landing{
         text-align:center;
     }
@@ -1466,13 +1544,6 @@ header{
     .course .course-banner .course-banner-text .course-name {
         font-size:36px;
     }
-}
-@media screen and (max-width: 900px){
-    .course .course-banner .course-banner-text .course-name{
-        font-size:30px;
-    }
-}
-@media screen and (max-width: 850px){
     .fields .fields-list .fields-filters{
         width: 600px;
     }
@@ -1488,15 +1559,32 @@ header{
     .fields .fields-list ul li:nth-child(odd){
         margin-right: 0;
     }
+}
+@media screen and (max-width: 950px){
+    .subfields .subfields-list .subfields-filters{
+        width: 550px;
+    }
+    .subfields .subfields-list ul{
+        width: 550px;
+        li{
+            margin-left:100px;
+        }
+    }
+    .subfields .subfields-list ul li:nth-child(2n+1){
+        margin-right: 0;
+    } 
     .courses .courses-list .courses-filters{
-        width: 370px;
+        width: 470px;
     }
     .courses .courses-list ul li{
         margin-right: 0;
         margin-bottom:40px;
     }
     .courses .courses-list ul{
-        width: 370px;
+        width: 470px;
+        li{
+            margin-left:50px;
+        }
     }
     .courses .courses-list .courses-filters .courses-select{
         margin-bottom:20px;
@@ -1504,16 +1592,18 @@ header{
     .courses .courses-list .courses-filters input{
         margin-bottom:20px;
     }
+}
+@media screen and (max-width: 900px){
+    .course .course-banner .course-banner-text .course-name{
+        font-size:30px;
+    }
+}
+@media screen and (max-width: 850px){
+
     .course .course-content .course-content-video #my-player{
             width:480px;
             height:240px;
     }   
-    .fields .fields-banner .fields-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1, .courses .courses-banner .courses-banner-text h1{
-        font-size:36px;
-    }
-    .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
-        font-size:22px;
-    }
 }
 @media screen and (max-width: 800px){
     .footer .footer-lists ul{
@@ -1525,6 +1615,31 @@ header{
     .footer .footer-socials p:last-child{
         font-size:14px;
     }
+
+}
+@media screen and (max-width : 750px){
+    .subfields .subfields-banner .subfields-banner-text p,.courses .courses-banner .courses-banner-text p{
+        font-size:18px;
+    }
+    .subfields .subfields-banner .subfields-banner-text h1,.courses .courses-banner .courses-banner-text h1{
+        font-size: 36px;
+    }
+    
+}
+@media screen and (max-width: 700px){
+    .courses .courses-list .courses-filters{
+        width: 370px;
+    }
+    .courses .courses-list ul li{
+        margin-right: 0;
+        margin-bottom:40px;
+    }
+    .courses .courses-list ul{
+        width: 370px;
+        li{
+            margin-left:0px;
+        }
+    }
     .subfields .subfields-list .subfields-filters{
         width: 350px;
     }
@@ -1532,15 +1647,33 @@ header{
         width: 350px;
         li{
             margin-right: 0;
+            margin-left: 0;
         }
     }
-    .subfields .subfields-list ul li:nth-child(2n+1){
-        margin-right:0;
+    .fields .fields-list .fields-filters{
+        width: 500px;
     }
-}
-
-@media screen and (max-width: 700px){
-
+    .fields .fields-list ul{
+        width: 500px;
+    }
+    .fields .fields-list ul li{
+        width:500px;
+        height: auto;
+    }
+    .fields .fields-list ul li .fields-item-img{
+        width:120px;
+        height:120px;
+        vertical-align: middle;
+    }
+    .fields .fields-list ul li .fields-item-text{
+        width: 360px;
+    }
+    .fields .fields-list ul li:nth-child(odd){
+        margin-right: 0;
+    }
+    .spin{
+        left:38%;
+    }
     .banner .banner-text p{
         text-align:center;
         font-size:26px;
@@ -1575,40 +1708,12 @@ header{
     }
 }
 @media screen and (max-width: 650px){
-    .fields .fields-list .fields-filters{
-        width: 400px;
+    .course .course-nav .course-language p, .course .course-nav .course-language .language-dropdown-open li {
+        font-size:14px;
+        padding: 10px;
     }
-    .fields .fields-list ul{
-        width: 400px;
-    }
-    .fields .fields-list ul li{
-        width:400px;
-        height: auto;
-    }
-    .fields .fields-list ul li .fields-item-img{
-        width:120px;
-        height:120px;
-        vertical-align: middle;
-    }
-    .fields .fields-list ul li .fields-item-text{
-        width: 260px;
-    }
-    .fields .fields-list ul li:nth-child(odd){
-        margin-right: 0;
-    }
-    .fields .fields-list ul li .fields-item-text h2{
-        font-size:18px;
-    }
-    .fields .fields-list ul li .fields-item-text p{
-        font-size: 14px;
-    }
-    .fields .fields-banner .fields-banner-text h1, 
-    .subfields .subfields-banner .subfields-banner-text h1, 
-    .courses .courses-banner .courses-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1{
-        font-size:30px;
-    }
-    .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
-        font-size:20px;
+    .fields .fields-banner .fields-banner-text h1{
+        font-size:40px;
     }
     .course .course-banner .course-banner-text .course-name{
         font-size:24px;
@@ -1648,11 +1753,63 @@ header{
     }   
 }
 @media screen and (max-width: 600px){
+    .courses .courses-list ul li .courses-item-text .courses-info h2{
+        font-size:20px;
+    }
+    .courses .courses-list ul li .courses-item-text .courses-description, .courses .courses-list ul li .courses-item-text .courses-profile p{
+        font-size:14px;
+    }
+    .courses .courses-list ul li .courses-item-text .courses-info .courses-level, .courses .courses-list ul li .courses-item-text .courses-info .courses-languages{
+        font-size:12px;
+    }
+    .subfields .subfields-banner .subfields-banner-text h1,  .courses .courses-banner .courses-banner-text h1{
+        font-size:30px;
+    }
+    .subfields .subfields-banner .subfields-banner-text p,  .courses .courses-banner .courses-banner-text p{
+        font-size:16px;
+    }
+    .subfields .subfields-list ul li p{
+        font-size:14px;
+    }
+    .fields .fields-list .fields-filters input,.subfields .subfields-list .subfields-filters input, .courses .courses-list .courses-filters input{
+        font-size:16px;
+    }
+    .fields .fields-list .fields-filters{
+        width: 400px;
+    }
+    .fields .fields-list ul{
+        width: 400px;
+    }
+    .fields .fields-list ul li{
+        width:400px;
+        height: auto;
+    }
+    .fields .fields-list ul li .fields-item-img{
+        width:120px;
+        height:120px;
+        vertical-align: middle;
+    }
+    .fields .fields-list ul li .fields-item-text{
+        width: 260px;
+    }
+    .fields .fields-list ul li:nth-child(odd){
+        margin-right: 0;
+    }
+    .fields .fields-banner .fields-banner-text h1, 
+    {
+        font-size:36px;
+    }
+    .fields .fields-list ul li .fields-item-text h2{
+        font-size:18px;
+    }
     header .navbar-links .navbar-link, header .navbar-links .navbar-link-dropdown{
         font-size:14px;
     }
     header .navbar-links{
         padding-top:9px;
+    }
+    .about-us .about-us-content p{
+        font-size:20px;
     }
     header .logo{
         width:49px;
@@ -1726,56 +1883,58 @@ header{
     .about-us-landing .about-us-main .about-us-sidetext{
         margin-bottom:80px;
     }
+    .fields .fields-list ul li .fields-item-text p{
+        font-size:14px;
+    }
 }
 @media screen and (max-width:550px) {
-    .courses .courses-list .courses-filters{
-        width: 270px;
+    .spin{
+        left:35%;
     }
-    .courses .courses-list ul{
-        width: 270px;
+    .course .course-nav .course-nav-menu{
+        width:250px;
     }
-    .courses .courses-list .courses-filters input{
-        margin-bottom:20px;
-        margin-right:0;
-        font-size:14px;
+    .course .course-nav .course-nav-menu .course-nav-menu-active-title.open, .course .course-nav .course-nav-menu .course-nav-menu-active-title{
+        background-position: 210px 12px;
     }
-    .courses .courses-list ul li .courses-item-img{
-        height: 180px;
-    }
-    .courses .courses-list ul li .courses-item-img img{
-        width:270px;
-        height:180px;   
-    }
-    .courses .courses-list ul li .courses-item-text .courses-info h2{
-        font-size:18px;
-    }
-    .courses .courses-list ul li .courses-item-text .courses-description{
-        font-size:14px;
-    }
-    .courses .courses-list .courses-filters .courses-select-input-left-button{
-        font-size:14px;
-    }
-    .courses .courses-list .courses-filters .courses-select-input-right-button{
-        margin-right:0;
-        height:38.8px;
-    }
-    .courses .courses-list ul li .courses-item-text .courses-profile p{
-        font-size:12px;
-    }
-    .courses .courses-list ul li{
-        width:270px;
-    }
-    .fields .fields-banner .fields-banner-text h1, .courses .courses-banner .courses-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1{
-        font-size:30px;
-    }
-    .fields .fields-banner .fields-banner-text p, .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
-        font-size:14px;
-    }
-    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text{
-        top:80px;
+    .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number, .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number.open{
+        background-position: 200px 10px;
     }
 }
 @media screen and (max-width: 510px){
+    .subfields .subfields-banner .subfields-banner-text p, .courses .courses-banner .courses-banner-text p{
+        font-size:14px;
+    }
+    .subfields .subfields-banner .subfields-banner-text h1, .courses .courses-banner .courses-banner-text h1{
+        font-size:24px;
+    }
+    .fields .fields-banner .fields-banner-text h1{
+        font-size:30px;
+    }
+    .fields .fields-list .fields-filters{
+        width: 350px;
+    }
+    .fields .fields-list ul{
+        width: 350px;
+    }
+    .fields .fields-list ul li{
+        width:350px;
+        height: auto;
+    }
+    .fields .fields-list ul li .fields-item-img{
+        width:100px;
+        height:100px;
+        vertical-align: middle;
+    }
+    .fields .fields-list ul li .fields-item-text{
+        width: 230px;
+    }
+    .fields .fields-list .fields-filters input{
+        width:200px;
+    }
+    .fields .fields-list{
+        padding-bottom:50px;
+    }
     .course .course-banner .course-banner-text{
         top:50px;
     }
@@ -1783,9 +1942,7 @@ header{
         margin-right:0;
         display:block;
     }
-    .subfields .subfields-banner .subfields-banner-text{
-        top:80px;
-    }
+    
     .banner .banner-text{
         top:100px;
     }
@@ -1885,7 +2042,7 @@ header{
         margin-left:12%;
     }
     header .navbar-links .navbar-link-dropdown p{
-        background-position: 100px;
+        background-position: 80px;
     }
     header .navbar-links .navbar-link .navbar-dropdown-links-open, header .navbar-links .navbar-link .navbar-dropdown-links-closed, header .navbar-links .navbar-link-dropdown .navbar-dropdown-links-open, header .navbar-links .navbar-link-dropdown .navbar-dropdown-links-closed{
         position:relative;
@@ -1913,12 +2070,68 @@ header{
     .footer .footer-socials p:last-child{
         font-size:12px;
     }
+    
 }
 @media screen and (max-width: 450px){
+    .courses .courses-list .courses-filters input{
+        width: 170px;
+    }
+    .courses .courses-list .courses-filters{
+        width:300px;
+    }
+    .courses .courses-list ul{
+        width:300px;
+    }
+    .courses .courses-list ul li .courses-item-img{
+        height:202px;
+    }
+    .courses .courses-list ul li .courses-item-img img{
+        width:300px;
+        height:202px;
+    }
+    .courses .courses-list ul li{
+        width:300px;
+    }
+    .fields .fields-list .fields-filters{
+        width: 300px;
+    }
+    .fields .fields-list ul{
+        width: 300px;
+    }
+    .fields .fields-list ul li{
+        width:300px;
+        height: auto;
+    }
+    .fields .fields-list ul li .fields-item-img{
+        width:100px;
+        height:100px;
+        vertical-align: middle;
+    }
+    .fields .fields-list ul li .fields-item-text{
+        width: 180px;
+    }
+    .fields .fields-list .fields-filters input{
+        width:200px;
+    }
+    .fields .fields-list ul li .fields-item-text p{
+        font-size:14px;
+    }
+    .fields .fields-list ul li .fields-item-text h2{
+        font-size:16px;
+    }
+    .fields .fields-list{
+        padding-bottom:50px;
+    }
+    .spin{
+        left:32%;
+    }
     .banner .banner-text{
         top:80px;
     }
     .banner .banner-text p{
+        font-size:16px;
+    }
+    .about-us .about-us-content p{
         font-size:16px;
     }
     .banner .banner-text h1{
@@ -1956,7 +2169,7 @@ header{
         font-size:14px;
     }
     .contact-us-landing h1{
-        font-size:18px;
+        font-size:16px;
     }
     .contact-us-landing button{
         padding:10px 20px;
@@ -1977,14 +2190,6 @@ header{
     .course .course-banner .course-banner-text .course-level{
         margin-bottom:5px;
     }
-    .course .course-nav .course-nav-menu{
-        width:250px;
-    }
-    .course .course-nav .course-nav-menu .course-nav-menu-active-title.open, .course .course-nav .course-nav-menu .course-nav-menu-active-title, .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number, .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number.open{
-        background-position: 220px 10px;
-        padding-left: 20px;
-        padding-right: 30px;
-    }
     .course .course-nav .course-nav-menu .course-nav-menu-active-title,
     .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number,
     .course-nav-menu-dropdown-week .course-nav-menu-dropdown-days .course-nav-menu-dropdown-day-item{
@@ -2002,96 +2207,107 @@ header{
         width:240px;
         height:150px;
     }   
-    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text{
-        top:60px;
+    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text,.courses .courses-banner .courses-banner-text{
+        top:80px;
     }
 }
 @media screen and (max-width: 440px){
     .banner .banner-text{
         top:70px;
     }
-    .fields .fields-list .fields-filters{
-        width: 300px;
+    .subfields .subfields-list .subfields-filters input{
+        width:160px;
     }
-    .fields .fields-list ul{
-        width: 300px;
-    }
-    .fields .fields-list ul li{
-        width:300px;
-        height: auto;
-    }
-    .fields .fields-list ul li .fields-item-img{
-        width:100px;
-        height:100px;
-        vertical-align: middle;
-    }
-    .fields .fields-list ul li .fields-item-text{
-        width: 180px;
+    .subfields .subfields-list .subfields-filters, .fields .fields-list .fields-filters{
+        width:280px;
     }
     .fields .fields-list .fields-filters input{
-        width:200px;
-    }
-    .fields .fields-list{
-        padding-bottom:50px;
-    }
-    .subfields .subfields-banner .subfields-banner-text h1{
-        font-size:30px;
-    }
-    .subfields .subfields-banner .subfields-banner-text p{
+        width:150px;
         font-size:16px;
     }
-    .subfields .subfields-list .subfields-filters, .fields .fields-list .fields-filters, .courses .courses-list .courses-filters{
-        input{
-            width:150px;
-            font-size:16px;
-        }
-        width:250px;
+    .fields .fields-list .fields-filters{
+        width: 280px;
     }
     .subfields .subfields-list ul{
-        width: 250px;
+        width: 280px;
     }
     .subfields .subfields-list ul li div img{
-        width:250px;
-        height:150px;
+        width:280px;
+        height:170px;
     }
     .subfields .subfields-list ul li{
-        width:250px;
+        width:280px;
     }
     .subfields .subfields-list ul li div{
-        height:150px;
+        height:170px;
+    }
+    .subfields .subfields-list ul li h2{
+        font-size:17px;
     }
 
 }
 @media screen and (max-width: 400px){
-    .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text{
-        top:45px;
+    .course .course-nav .course-nav-menu{
+        width:200px;
     }
-    .courses .courses-banner .courses-banner-text h1, .subfields .subfields-banner .subfields-banner-text h1{
-        font-size:20px;
+    .courses .courses-list .courses-filters{
+        width:270px;
     }
-    .courses .courses-banner .courses-banner-text p, .subfields .subfields-banner .subfields-banner-text p{
+    .courses .courses-list ul{
+        width:270px;
+    }
+    .course .course-nav .course-nav-menu .course-nav-menu-active-title.open, .course .course-nav .course-nav-menu .course-nav-menu-active-title{
+        background-position: 170px 12px;
+        padding-left:20px;
+    }
+    .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number, .course .course-nav .course-nav-menu .course-nav-menu-weeks .course-nav-menu-dropdown-week .course-nav-menu-dropdown-week-number.open{
+        background-position: 160px 10px;
+        padding-left:25px;
+    }
+    .courses .courses-list ul li .courses-item-img{
+        height:202px;
+    }
+    .courses .courses-list ul li .courses-item-img img{
+        width:270px;
+        height:202px;
+    }
+    .courses .courses-list ul li{
+        width:270px;
+    }
+    .subfields .subfields-banner .subfields-banner-text p, .courses .courses-banner .courses-banner-text p{
         font-size:12px;
     }
-    .subfields .subfields-banner .subfields-banner-text{
-        top:50px;
+    .subfields .subfields-banner .subfields-banner-text h1, .courses .courses-banner .courses-banner-text h1{
+        font-size:20px;
+    }
+    .subfields .subfields-banner .subfields-banner-text, .courses .courses-banner .courses-banner-text{
+        top:65px;
+        p{
+
+            margin-top: 10px;
+        }
+    }
+    .spin{
+        left:30%;
+    }
+    .fields .fields-banner .fields-banner-text{
+        top:90px;
+    }
+    .fields .fields-banner .fields-banner-text h1{
+        font-size: 30px;
     }
 }
 @media screen and (max-width: 370px){
+    .spin{
+        left:25%;
+    }
     .banner .banner-text .banner-button-why{
         padding: 10px 15px;
     }
     .banner .banner-text .banner-button-browse{
         padding: 10px 15px;
     }
-    .fields .fields-banner .fields-banner-text{
-        top:80px;
-    }
-    .subfields .subfields-banner .subfields-banner-text p{
-        font-size:14px;
-    }
-    .fields .fields-list .fields-filters{
-        width: 280px;
-    }
+
     .fields .fields-list ul{
         width: 280px;
     }
@@ -2107,10 +2323,7 @@ header{
     .fields .fields-list ul li .fields-item-text{
         width: 160px;
     }
-    .fields .fields-list .fields-filters input{
-        width:150px;
-        font-size:16px;
-    }
+
     .fields .fields-list ul li .fields-item-text h2{
         font-size:16px;
     }
@@ -2121,10 +2334,12 @@ header{
         top:30px;
     }
 }
-@media screen and (max-width: 340px){
+@media screen and (max-width:360px){
     .banner .banner-text{
-        top:40px;
+        top:50px;
     }
+}
+@media screen and (max-width: 340px){
     .banner .banner-text h1{
         font-size:25px;
     }

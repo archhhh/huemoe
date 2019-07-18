@@ -10,8 +10,14 @@ class SubFields extends Component{
         super(props);
         this.state = {
             searchValue: "",
-            name:"",
-            description: "",
+            name: {
+                RU: "",
+                EN: "",
+            },
+            description: {
+                RU: "",
+                EN: "",
+            },
             img: "",
             subfields: [
             ],
@@ -21,6 +27,7 @@ class SubFields extends Component{
         this.setState({
             isLoading: true
         });
+        //${this.props.match.params.field}
         axios.get(`http://67.205.173.77:8000/api/fields?id=${this.props.match.params.field}`)
         .then((resp) => {
             this.setState({
@@ -53,6 +60,16 @@ class SubFields extends Component{
                     }),
                     isLoading: false,
                 });
+            }).catch((error) => {
+                alert(`Something went wrong. ${error}`);
+                this.setState({
+                    isLoading: false,
+                });
+            });
+        }).catch((error) => {
+            alert(`Something went wrong. ${error}`);
+            this.setState({
+                isLoading: false,
             });
         });
     } 

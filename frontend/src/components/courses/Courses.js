@@ -65,6 +65,16 @@ class Courses extends Component{
                     }),
                     isLoading: false,
                 });
+            }).catch((error) => {
+                alert(`Something went wrong. ${error}`);
+                this.setState({
+                    isLoading: false
+                });
+            });
+        }).catch((error) => {
+            alert(`Something went wrong. ${error}`);
+            this.setState({
+                isLoading: false
             });
         });
     }
