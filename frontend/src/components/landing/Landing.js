@@ -32,10 +32,10 @@ class Landing extends Component{
                 {
                     header: "We launched",
                     header_ru: "Мы запустились",
-                    description: "haha",
-                    description_ru: "Ура",
+                    description: "Finally. Pic unrelated.",
+                    description_ru: "Наконец-то.",
                     date: "6/29/2019",
-                    thumbnail: "volk.jpg",
+                    thumbnail: "news1.jpg",
                 },
             ];
     

@@ -563,6 +563,7 @@ header{
                 margin-right:30px;
                 width:200px;
                 height:180px;
+                border: 1px solid #000000;
             }
             .news-landing-text{
                 h2{
@@ -602,7 +603,7 @@ header{
         }
         .about-us-sidetext{
             float:left;
-            width:23%;
+            width:26%;
             h3{
                 font-size: 24px;
                 font-weight: 300;
@@ -614,7 +615,9 @@ header{
                 line-height: 2;
                 font-weight:500;
             }
-            button{
+            a{
+                display:inline-block;
+                text-decoration: none;
                 padding: 14px 25px;
                 text-transform: uppercase;
                 background-color: #1FB76E;
@@ -635,11 +638,13 @@ header{
             list-style-type:none;
             float:right;
             width:65%;
-            margin-left:12%;
+            margin-left:9%;
+            margin-top:80px;
             li{
                 width:40%;
                 display:inline-block;
                 vertical-align: top;
+                text-align: center;
                 margin-right:10%;
                 &:nth-child(2n){
                     margin-left:10%;
@@ -1372,6 +1377,7 @@ header{
         }
         .course-content-video{
             float:left;
+            width: 65%;
             #my-player{
                 width:640px;
                 height:360px;
@@ -1501,12 +1507,9 @@ header{
     }
     
 
-    .course .course-content .course-content-text{
+    .course .course-content .course-content-text, .course .course-content .course-content-video{
         float:none;
         width:100%;
-    }
-    .course .course-content .course-content-video{
-        float:none;
     }
     .course .course-content .course-content-supplementary{
         float:none;
@@ -1601,8 +1604,7 @@ header{
 @media screen and (max-width: 850px){
 
     .course .course-content .course-content-video #my-player{
-            width:480px;
-            height:240px;
+            width: 100%;
     }   
 }
 @media screen and (max-width: 800px){
@@ -1748,8 +1750,7 @@ header{
         padding:50px 0;
     }
     .course .course-content .course-content-video #my-player{
-        width:360px;
-        height:240px;
+        width:100%;
     }   
 }
 @media screen and (max-width: 600px){
@@ -2204,8 +2205,7 @@ header{
         margin-left:5%;
     }
     .course .course-content .course-content-video #my-player{
-        width:240px;
-        height:150px;
+        width:100%; 
     }   
     .courses .courses-banner .courses-banner-text, .subfields .subfields-banner .subfields-banner-text,.courses .courses-banner .courses-banner-text{
         top:80px;

@@ -72,7 +72,61 @@ class SubFields extends Component{
                 isLoading: false,
             });
         });
-    } 
+    }
+    componentDidUpdate = (prevProps) => {
+        if(prevProps.match.params.field != this.props.match.params.field)
+        {
+            this.setState({
+                isLoading: true
+            });
+            //${this.props.match.params.field}
+            axios.get(`http://67.205.173.77:8000/api/fields?id=${this.props.match.params.field}`)
+            .then((resp) => {
+                this.setState({
+                    name: {
+                        RU: resp.data[0].title_ru,
+                        EN: resp.data[0].title,
+                    },
+                    description: {
+                        RU: resp.data[0].description_ru,
+                        EN: resp.data[0].description,
+                    },
+                    img: resp.data[0].img_banner       
+                });
+                axios.get(`http://67.205.173.77:8000/api/subfields?field=${this.props.match.params.field}`)
+                .then((resp) => {
+                    this.setState({
+                        subfields: resp.data.map((item) => {
+                            return {
+                                img: item.img_thumbnail,
+                                name: {
+                                    RU: item.title_ru,
+                                    EN: item.title,
+                                },
+                                description: {
+                                    RU: item.description_ru,
+                                    EN: item.description,
+                                },
+                                url: item.id          
+                            };
+                        }),
+                        isLoading: false,
+                    });
+                }).catch((error) => {
+                    alert(`Something went wrong. ${error}`);
+                    this.setState({
+                        isLoading: false,
+                    });
+                });
+            }).catch((error) => {
+                alert(`Something went wrong. ${error}`);
+                this.setState({
+                    isLoading: false,
+                });
+            });
+        }
+        
+    }
     changeSearchValue = (e) => {
         this.setState({
             searchValue: e.target.value,

@@ -4,28 +4,28 @@ export const english = {
         aboutUs: "about us",
     },
     landingPage: {
-        bannerUpperText: "haha",
-        bannerLowerText: "yes",
+        bannerUpperText: "Knowledge",
+        bannerLowerText: "For Everyone",
         bannerLeftButton: "catalog",
         bannerRightButton: "about us",
         news: "Latest News",
         newsEmpty: "such empty",
         whyUs: "Why us?",
-        whyUsLeftTextTitle: "hai quoliti kontent",
-        whyUsLeftTextContent: "bla bla bla bla balb",
+        whyUsLeftTextTitle: "Get Knowledge Without Boundaries",
+        whyUsLeftTextContent: "Tired of teachers who teach nothing but outdated things from the past, teachers that don't give a shit about giving you knowledge, but would ask tens of dollars for a lesson? Aside from memes and cat videos, there are already loads of different educational courses on the Internet provided by the top institutions/organizations like MIT, Stanford etc. We are here to make this knowledge more accessible for everyone.",
         whyUsLeftTextButton: "Catalog",
-        whyUsWebDesignTitle: "Web design",
-        whyUsWebDesignDescription: "Web design",
+        whyUsWebDesignTitle: "Web Development",
+        whyUsWebDesignDescription: "Learn the fundamentals of web development",
         whyUsMathTitle: "Math",
-        whyUsMathDescription: "Math",
+        whyUsMathDescription: "Here you will learn why the hell you need integrals in your life",
         whyUsChemistryTitle: "Chemistry",
-        whyUsChemistryDescription: "Chemistry",
-        whyUsAudioEngineeringTitle: "Audio engineering",
-        whyUsAudioEngineeringDescription: "mastering , mixing",
+        whyUsChemistryDescription: "Study changes",
+        whyUsAudioEngineeringTitle: "Audio Engineering",
+        whyUsAudioEngineeringDescription: "Become the best soundcloud rapper",
         contactUs: "leave your suggestions",
         contactUsButton: "contact us",
         footerGoal: "goal",
-        footerGoalContent: "yeee goal",
+        footerGoalContent: "Make knowledge more accessible",
         footerSiteMap: "Site Map",
         footerSiteMapHome: "Home",
         footerSiteMapCatalog: "Catalog",
@@ -33,7 +33,7 @@ export const english = {
         footerSiteMapLocation: "Location",
         footerSiteMapLocationContent: "Tashkent, Uzbekistan",
         footerSiteMapContacts: "Contacts",
-        footerSiteMapContactsEmail: "dimadebila@mail.ru",
+        footerSiteMapContactsEmail: "test@test.test",
     },
     fields: {
         bannerTitle: "Catalog",
@@ -55,9 +55,9 @@ export const english = {
         download: "Download",
     },
     aboutUs: {
-        text: "haha no"
+        text: "Nothing to say here tbh. Leave us a message at test@test.test."
     },
     error: {
-        text: "Иди домой"
+        text: "404"
     }
 };

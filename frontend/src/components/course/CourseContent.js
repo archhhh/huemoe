@@ -52,13 +52,16 @@ class CourseContent extends Component{
                     <h2 className="course-content-supplementary-title">
                         {this.props.language[this.props.courseLocale].course.supplementaryMaterials}
                     </h2>
-                    <ul className="course-content-supplementary-materials">
-                        <li>
-                            <a className="course-content-supplementary-material" href={this.props.content.supplementaryMaterials}>
-                            {this.props.language[this.props.courseLocale].course.download}
-                            </a>
-                        </li>
-                    </ul>
+                    { this.props.content.supplementaryMaterials && (
+                        <ul className="course-content-supplementary-materials">
+                            <li>
+                                <a className="course-content-supplementary-material" href={this.props.content.supplementaryMaterials}>
+                                {this.props.language[this.props.courseLocale].course.download}
+                                </a>
+                            </li>
+                        </ul>
+                    )}
+
                 </div>            
                 {this.props.content.type === "video" 
                 ? (

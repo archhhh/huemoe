@@ -4,15 +4,15 @@ export const russian = {
         aboutUs: "о нас",
     },
     landingPage: {
-        bannerUpperText: "Тут ничего",
-        bannerLowerText: "Интересного",
+        bannerUpperText: "Знания",
+        bannerLowerText: "для всех",
         bannerLeftButton: "каталог",
         bannerRightButton: "о нас",
         news: "Последние новости",
-        newsEmpty: "Опа пусто",
+        newsEmpty: "опа пусто",
         whyUs: "Почему мы?",
-        whyUsLeftTextTitle: "Высококачественные курсы",
-        whyUsLeftTextContent: "Мы собираем и переводим курсы, которые предоставляются такими учреждениями как MIT, Stanford и другими. Наша цель делать знания доступнее.",
+        whyUsLeftTextTitle: "Учись без границ",
+        whyUsLeftTextContent: "Надоели преподаватели с материалом не обновленным со времен распада советского союза, преподаватели, которые не дают знания, но берут за курсы десятки долларов за урок? Помимо мемов и видео с котят, в интернете уже давно много различных образовательных курсов, предоставленные лучшими университетами/организациями, как MIT, Stanford и т.д. И мы здесь для того, чтобы сделать эти знания доступнее для всех.",
         whyUsLeftTextButton: "Каталог",
         whyUsWebDesignTitle: "Веб разработка",
         whyUsWebDesignDescription: "Научись основам веб разработки",
@@ -22,7 +22,7 @@ export const russian = {
         whyUsChemistryDescription: "Изучай изменения",
         whyUsAudioEngineeringTitle: "Звукоинженерия",
         whyUsAudioEngineeringDescription: "Стань лучшим рэппером на soundcloud",
-        contactUs: "Узнай о нас больше",
+        contactUs: "Оставь свои пожелания",
         contactUsButton: "связаться",
         footerGoal: "Цель",
         footerGoalContent: "Сделать знания доступнее",
@@ -33,7 +33,7 @@ export const russian = {
         footerSiteMapLocation: "Локация",
         footerSiteMapLocationContent: "Ташкент, Узбекистан",
         footerSiteMapContacts: "Контакты",
-        footerSiteMapContactsEmail: "dimadebila@mail.ru",
+        footerSiteMapContactsEmail: "test@test.test",
     },
     fields: {
         bannerTitle: "Каталог",
@@ -55,9 +55,9 @@ export const russian = {
         download: "Скачать",
     },
     aboutUs: {
-        text: "О нас ходят разные сплетни, но мы не такие"
+        text: "О нас ходят разные сплетни, но мы не такие. Пишите на test@test.test."
     },
     error: {
-        text: "Иди домой"
+        text: "404"
     }
 };

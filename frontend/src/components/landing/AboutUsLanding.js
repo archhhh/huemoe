@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const AboutUsLanding = (props) => {
@@ -9,7 +10,7 @@ const AboutUsLanding = (props) => {
                 <div className="about-us-sidetext">
                     <h3>{props.language[props.locale].landingPage.whyUsLeftTextTitle}</h3>
                     <p>{props.language[props.locale].landingPage.whyUsLeftTextContent}</p>
-                    <button>{props.language[props.locale].landingPage.whyUsLeftTextButton}</button>
+                    <Link to="/fields">{props.language[props.locale].landingPage.whyUsLeftTextButton}</Link>
                 </div>
                 <ul className="about-us-list">
                     <li>
