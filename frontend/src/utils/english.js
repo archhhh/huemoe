@@ -12,7 +12,7 @@ export const english = {
         newsEmpty: "such empty",
         whyUs: "Why us?",
         whyUsLeftTextTitle: "Get Knowledge Without Boundaries",
-        whyUsLeftTextContent: "Tired of teachers who teach nothing but outdated things from the past, teachers that don't give a shit about giving you knowledge, but would ask tens of dollars for a lesson? Aside from memes and cat videos, there are already loads of different educational courses on the Internet provided by the top institutions/organizations like MIT, Stanford etc. We are here to make this knowledge more accessible for everyone.",
+        whyUsLeftTextContent: "Tired of conservative outdated material constantly being taught in schools/universities by teachers that genuinely could not care less about giving you knowledge, but still would ask ten bucks per lesson? Aside from memes and cat videos, the internet possess a vast amount of various educational courses provided by well-known top institutions/organizations like MIT, Stanford and etc. And we are here to make this knowledge equally  accessible for everyone.",
         whyUsLeftTextButton: "Catalog",
         whyUsWebDesignTitle: "Web Development",
         whyUsWebDesignDescription: "Learn the fundamentals of web development",
