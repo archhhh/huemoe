@@ -1,6 +1,27 @@
-# %Project Name%
+# Gradient
 
-Service that provides educational content from top-ranked universities, popular MOOCs (like Coursera, Udemy, etc.) translated into Russian and Uzbek languages. We use Django for backend and ReactJS for front-end
+Service that provides educational content from top-ranked universities, popular MOOCs (like Coursera, Udemy, etc.) translated into Russian and Uzbek languages.
+
+# Available Scripts
+
+To run locally
+
+```
+    npm install
+    npm run start
+```
+
+To build the app for production
+
+```
+    npm run build
+```
+
+# Tech Stack
+
+- Python, Django for backend
+- React.js for frontend
+- Webpack/Babel
 
 # Collaboration
 
