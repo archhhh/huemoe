@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/archhhh/huemoe#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "prop-types": "^15.7.2",
